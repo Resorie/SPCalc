@@ -1,0 +1,1091 @@
+{
+  "version": "26-04-13-12-31-42_e9b560",
+  "source": "https://ak.hycdn.cn/assetbundle/official/Android/assets/26-04-13-12-31-42_e9b560/",
+  "bundles": [
+    {
+      "name": "arts/effects/[pack]map.ab",
+      "hash": "a3ea59a5cdba726099e986ff8687d8f0",
+      "md5": "be5054fbe0e7cd1d37aef1ce8a74a36d",
+      "totalSize": 115903,
+      "abSize": 150923,
+      "pid": "lpack_init4",
+      "cid": 5279
+    },
+    {
+      "name": "arts/maps/common/meshes/s_background_common.ab",
+      "hash": "db7554694c56c5fa10995951ad723167",
+      "md5": "b39301cffe8195d33554e90b0c02c22c",
+      "totalSize": 8943,
+      "abSize": 12885,
+      "pid": "lpack_init4",
+      "cid": 5290
+    },
+    {
+      "name": "arts/maps/common/meshes/s_common_box_01.ab",
+      "hash": "a51a47788826a3c32977939e6edf5d1b",
+      "md5": "7c7cfaae5a50a61ebe73c2a64bd2a907",
+      "totalSize": 9790,
+      "abSize": 13974,
+      "pid": "lpack_init4",
+      "cid": 5293
+    },
+    {
+      "name": "arts/maps/common/meshes/s_wind_device.ab",
+      "hash": "38d2814d9ecceec909dde8111b8c9120",
+      "md5": "b6b3eb0d946614fc5d42d7d670568a16",
+      "totalSize": 9704,
+      "abSize": 12550,
+      "pid": "lpack_init4",
+      "cid": 5311
+    },
+    {
+      "name": "arts/maps/common/res.ab",
+      "hash": "9b36e440ed60c9556ec4f4c3a718186e",
+      "md5": "d2fbd4cb79f3bf2609d8583d834b27af",
+      "totalSize": 7146311,
+      "abSize": 8971881,
+      "pid": "lpack_init7",
+      "cid": 10496
+    },
+    {
+      "name": "arts/maps/common/trap/trap_110.ab",
+      "hash": "df2c283bd36de3c2f79139c0f1e00996",
+      "md5": "9e6183434bdb5cc4478ecb4abe38d66c",
+      "totalSize": 1367812,
+      "abSize": 1781922,
+      "pid": "lpack_init7",
+      "cid": 10607
+    },
+    {
+      "name": "arts/maps/effect.ab",
+      "hash": "e3ad39b9501142fa719477665f125a30",
+      "md5": "d5950d2eae6f7224a04cca08e2f4c337",
+      "totalSize": 1327097,
+      "abSize": 1672137,
+      "pid": "lpack_init2",
+      "cid": 3331
+    },
+    {
+      "name": "arts/maps/map_autochess/res.ab",
+      "hash": "04254c281d73baa62cf486a96848b787",
+      "md5": "cc4bdcbc9c7cdef3a949ef553730ef7d",
+      "totalSize": 3553975,
+      "abSize": 4011897,
+      "pid": "lpack_lart1",
+      "cid": 10644
+    },
+    {
+      "name": "arts/maps/map_autochesssand/res.ab",
+      "hash": "58a9cc84b556a693f43aff8181074460",
+      "md5": "7e72275542dc662ce76af1226b64a197",
+      "totalSize": 3505323,
+      "abSize": 3789450,
+      "pid": "lpack_v072",
+      "cid": 10645
+    },
+    {
+      "name": "arts/maps/map_doss_shore/res.ab",
+      "hash": "d52230d3f2c1b1d6c568e0da7630491a",
+      "md5": "5dd0affd10e0aebc202381b30033af4d",
+      "totalSize": 4299795,
+      "abSize": 5429975,
+      "pid": "lpack_init7",
+      "cid": 10665
+    },
+    {
+      "name": "arts/maps/map_kxmr/background_mesh/bg_kxmr.ab",
+      "hash": "48945b42efa9a1c1b9d484c03f0d70c4",
+      "md5": "9e505262fa3fb77c212fe4c7c0df0252",
+      "totalSize": 6941,
+      "abSize": 9007,
+      "pid": "lpack_init4",
+      "cid": 5390
+    },
+    {
+      "name": "arts/maps/map_kxmr/res.ab",
+      "hash": "5b6a1ecd89475c2d8c7cedf565c3c4bc",
+      "md5": "a7a8bda48932a3d176c661f0f640424c",
+      "totalSize": 999775,
+      "abSize": 1277326,
+      "pid": "lpack_init7",
+      "cid": 10685
+    },
+    {
+      "name": "arts/maps/map_lakegarden/res.ab",
+      "hash": "08fe84d1503bfc122b12482b6bad32f3",
+      "md5": "65aaa2978f6745f46718d8616223d841",
+      "totalSize": 1597003,
+      "abSize": 1997237,
+      "pid": "lpack_lart2",
+      "cid": 10690
+    },
+    {
+      "name": "arts/maps/map_lm_center/res.ab",
+      "hash": "e1750cbdb2d7c618f19666328ff69251",
+      "md5": "53fb44cb7da1bc9fc05a386fbdb733a5",
+      "totalSize": 3494296,
+      "abSize": 4229875,
+      "pid": "lpack_init7",
+      "cid": 10696
+    },
+    {
+      "name": "arts/maps/map_survivaloasis_city/res.ab",
+      "hash": "08cf35037a023ae63e5fb6e5eaed4167",
+      "md5": "55fd55e6c384ff9223050375ac5dd540",
+      "totalSize": 7345043,
+      "abSize": 9033907,
+      "pid": "lpack_v072",
+      "cid": 10735
+    },
+    {
+      "name": "arts/maps/map_syracuse_metro/res.ab",
+      "hash": "34f874fbc890ea3cae0b46854ca238a7",
+      "md5": "c09545eebf4184372f265a52d02539d4",
+      "totalSize": 5462344,
+      "abSize": 5873745,
+      "pid": "lpack_lart2",
+      "cid": 10737
+    },
+    {
+      "name": "arts/maps/map_yumen/res.ab",
+      "hash": "4f1cb12a791599b894bcc06e6f2898c9",
+      "md5": "c12620e52428a394f1f676efe8c98d34",
+      "totalSize": 2595077,
+      "abSize": 3222130,
+      "pid": "lpack_lart2",
+      "cid": 10750
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m01/level_act1autochess_m01.ab",
+      "hash": "d19e0221b36326205ea7f81a2d84fc02",
+      "md5": "6989bfb745f3a231523206248cf180ad",
+      "totalSize": 1109459,
+      "abSize": 1559102,
+      "pid": "lpack_scene1",
+      "cid": 9055
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m01/level_act1autochess_m01/lightingdata.ab",
+      "hash": "0e9219d7b70b290bff3b9cd5a27db579",
+      "md5": "84ada1be682a522f7ead8947e62f91ce",
+      "totalSize": 507648,
+      "abSize": 565252,
+      "pid": "lpack_scene5",
+      "cid": 11156
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m01/level_act1autochess_m01_lighting_settings.ab",
+      "hash": "c7ad149f5a0f48e02ed0191a435bc423",
+      "md5": "aebc9a44ba23fd6fbaf817cfad847233",
+      "totalSize": 1690,
+      "abSize": 1766,
+      "pid": "lpack_scene1",
+      "cid": 9056
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m02/level_act1autochess_m02.ab",
+      "hash": "bffdf991abb289d114e2d87693c45a62",
+      "md5": "a5c4f397b5bc7cc439233117ac20d301",
+      "totalSize": 1128886,
+      "abSize": 1527901,
+      "pid": "lpack_scene1",
+      "cid": 9057
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m02/level_act1autochess_m02/lightingdata.ab",
+      "hash": "c7d8330006e38055d13d5ef4c1bdb8e1",
+      "md5": "81e1a511c04bf5c8caceae4ae230387b",
+      "totalSize": 463709,
+      "abSize": 514746,
+      "pid": "lpack_scene5",
+      "cid": 11157
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m02/level_act1autochess_m02_lighting_settings.ab",
+      "hash": "14cbd5b028431613672e2f9fdf0ee733",
+      "md5": "5cffce8353153d635cba9f4bf415021a",
+      "totalSize": 1689,
+      "abSize": 1766,
+      "pid": "lpack_scene1",
+      "cid": 9058
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m03/level_act1autochess_m03.ab",
+      "hash": "7621b838bc0a89292b46ff0c472306f5",
+      "md5": "52659f59abf3b6a88144a910806e2e91",
+      "totalSize": 1162199,
+      "abSize": 1618499,
+      "pid": "lpack_scene1",
+      "cid": 9059
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m03/level_act1autochess_m03/lightingdata.ab",
+      "hash": "81716e006dd6a04829fe794541615df3",
+      "md5": "4f944de6345027313b7a2eb09b45c0cd",
+      "totalSize": 413354,
+      "abSize": 458223,
+      "pid": "lpack_scene5",
+      "cid": 11158
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m03/level_act1autochess_m03_lighting_settings.ab",
+      "hash": "9c5cb59531c18fba460c595dc341e654",
+      "md5": "f8e46672345dff00f4b40e6c6de82b28",
+      "totalSize": 1664,
+      "abSize": 1731,
+      "pid": "lpack_scene1",
+      "cid": 9060
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m04/level_act1autochess_m04.ab",
+      "hash": "2962affc74ffee94e48dbe3a025c8ee0",
+      "md5": "07e4b1eed39cc386edaabaec8f4e2d41",
+      "totalSize": 1240301,
+      "abSize": 1674155,
+      "pid": "lpack_scene1",
+      "cid": 9061
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m04/level_act1autochess_m04/lightingdata.ab",
+      "hash": "03f3af95cb99e9a240428256c6f8c294",
+      "md5": "2d2d8781e120fd83a52cb5f26975b1bc",
+      "totalSize": 408104,
+      "abSize": 452659,
+      "pid": "lpack_scene5",
+      "cid": 11159
+    },
+    {
+      "name": "scenes/activities/act1autochess/level_act1autochess_m04/level_act1autochess_m04_lighting_settings.ab",
+      "hash": "b8219dfaff25bee8f4e45e5718d8aeb1",
+      "md5": "66eec3d2feb0bfa4c118bdef4201a74b",
+      "totalSize": 1689,
+      "abSize": 1766,
+      "pid": "lpack_scene1",
+      "cid": 9062
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m01/level_act2autochess_m01.ab",
+      "hash": "7bdf69a95ee5c27b58c36a7ecda9ccd1",
+      "md5": "f905289a6b0090ea55861fcc70dc1fb6",
+      "totalSize": 3249127,
+      "abSize": 4533959,
+      "pid": "lpack_scene2",
+      "cid": 9268
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m01/level_act2autochess_m01/lightingdata.ab",
+      "hash": "53b2d7c9709dce368d52099ae60bb4ac",
+      "md5": "aa0d2bad3156c19441eb5ca56563c879",
+      "totalSize": 943762,
+      "abSize": 1067982,
+      "pid": "lpack_scene5",
+      "cid": 11362
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m01/level_act2autochess_m01_lighting_settings.ab",
+      "hash": "06b5a1e50e09b027900f787bd19fa34c",
+      "md5": "cf16c361dcf64d073e9d4baf28c65c68",
+      "totalSize": 1688,
+      "abSize": 1765,
+      "pid": "lpack_scene2",
+      "cid": 9269
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m02/level_act2autochess_m02.ab",
+      "hash": "95d8616db200934ab6965c0b43632cc4",
+      "md5": "ab86e31507bf16eacbc1bc47858f2df5",
+      "totalSize": 1307413,
+      "abSize": 1820662,
+      "pid": "lpack_scene2",
+      "cid": 9270
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m02/level_act2autochess_m02/lightingdata.ab",
+      "hash": "1f6f77aca0108ffc739a7f491c7a4971",
+      "md5": "fc4043994bfaf458b0b28cd975a538d1",
+      "totalSize": 1187972,
+      "abSize": 1315382,
+      "pid": "lpack_scene5",
+      "cid": 11363
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m02/level_act2autochess_m02_lighting_settings.ab",
+      "hash": "eb8096a118dd6758d5f068cec2163284",
+      "md5": "ec8683ab02565acfb6d1a48951a08ade",
+      "totalSize": 1664,
+      "abSize": 1731,
+      "pid": "lpack_scene2",
+      "cid": 9271
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m03/level_act2autochess_m03.ab",
+      "hash": "e63705bd50a511a19ed50f72088714d9",
+      "md5": "df84e701fe705fe83fdd8fbbfebb632d",
+      "totalSize": 1362642,
+      "abSize": 2080069,
+      "pid": "lpack_scene2",
+      "cid": 9272
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m03/level_act2autochess_m03/lightingdata.ab",
+      "hash": "8b050377b50eaca054b08349c8a8b76b",
+      "md5": "5c83ebec85a5f864fa9b4241cee9bed7",
+      "totalSize": 911513,
+      "abSize": 1038931,
+      "pid": "lpack_scene5",
+      "cid": 11364
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m03/level_act2autochess_m03_lighting_settings.ab",
+      "hash": "819699e4ed40579770157a87f08f0c6f",
+      "md5": "ddfd8c92224d69f13627a70c3fccd2dc",
+      "totalSize": 1661,
+      "abSize": 1727,
+      "pid": "lpack_scene2",
+      "cid": 9273
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m04/level_act2autochess_m04.ab",
+      "hash": "65dc7169d00a72e42a4b99d38905a8c3",
+      "md5": "e0328f664792a92b0e8c373d0d68ae3b",
+      "totalSize": 1131675,
+      "abSize": 1569864,
+      "pid": "lpack_scene2",
+      "cid": 9274
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m04/level_act2autochess_m04/lightingdata.ab",
+      "hash": "eea6216028eeb7ca2e5c768d77d729e1",
+      "md5": "d701fb1fa83aa700486da3edd99292f9",
+      "totalSize": 605460,
+      "abSize": 670739,
+      "pid": "lpack_scene5",
+      "cid": 11365
+    },
+    {
+      "name": "scenes/activities/act2autochess/level_act2autochess_m04/level_act2autochess_m04_lighting_settings.ab",
+      "hash": "a1ed0a3b487f7c69b881168c5f0cb6eb",
+      "md5": "00b544c315d9cf703842759b53014296",
+      "totalSize": 1686,
+      "abSize": 1765,
+      "pid": "lpack_scene2",
+      "cid": 9275
+    },
+    {
+      "name": "shaders/dynamicwatertile.ab",
+      "hash": "6eb8b49459b27c85f6aa75e1b4b18854",
+      "md5": "b698d98289122cf0447cfcb29cdafd4e",
+      "totalSize": 15799,
+      "abSize": 26399,
+      "cid": 4
+    },
+    {
+      "name": "shaders/other.ab",
+      "hash": "12faa9b3371bf14044054bffca189fab",
+      "md5": "e799d82c23eeff435bdc2fef7961e12d",
+      "totalSize": 60763,
+      "abSize": 79821,
+      "cid": 2
+    },
+    {
+      "name": "shaders/special.ab",
+      "hash": "c8fa0883ea226e7b8f9b19dfa78db4a3",
+      "md5": "4758c00300727df666e365a95c7e9e4f",
+      "totalSize": 1087041,
+      "abSize": 1419733,
+      "cid": 3
+    },
+    {
+      "name": "shaders/standard.ab",
+      "hash": "03037a517d0bf8d3e0cde6a11ff0c847",
+      "md5": "31f521ccc399c290ca501f7ca4380f69",
+      "totalSize": 368796,
+      "abSize": 463703,
+      "cid": 5
+    },
+    {
+      "name": "shaders/standardblend.ab",
+      "hash": "15ee9c5ba42cc75d4eace7e3769b4d85",
+      "md5": "e2a118e046a5e76e35e30c7e95f38ab5",
+      "totalSize": 1339886,
+      "abSize": 1723046,
+      "cid": 6
+    },
+    {
+      "name": "shaders/standardbloom.ab",
+      "hash": "abb9e7041b5428efd055cfc6e6d9d166",
+      "md5": "478db71110668bce6819c3ee7942a0b7",
+      "totalSize": 490210,
+      "abSize": 636913,
+      "cid": 7
+    },
+    {
+      "name": "shaders/standardbloomandwaving.ab",
+      "hash": "fc197937df5918cb72e4e89bfef70d7f",
+      "md5": "995334970d5071a997247c9cd0714b9c",
+      "totalSize": 351440,
+      "abSize": 458999,
+      "cid": 8
+    },
+    {
+      "name": "shaders/standarddirectional.ab",
+      "hash": "258c51e0cc4406daa2b707fe661f0657",
+      "md5": "f00e57632307bdca8b4bc4ae8f2cb201",
+      "totalSize": 3246393,
+      "abSize": 3939014,
+      "cid": 9
+    },
+    {
+      "name": "shaders/standarddirectionaldissolve.ab",
+      "hash": "5eb5d284290c8f78d93784bde3444078",
+      "md5": "a09219287be5dfdf5221a6592ed2c97b",
+      "totalSize": 621066,
+      "abSize": 741774,
+      "cid": 10
+    },
+    {
+      "name": "shaders/standardflowsand.ab",
+      "hash": "d114da8049a1027cdb30d2b4b8cb5be2",
+      "md5": "84571fcc95732c368061840deac23d97",
+      "totalSize": 247355,
+      "abSize": 312244,
+      "cid": 11
+    },
+    {
+      "name": "shaders/standardhighlight.ab",
+      "hash": "47f3c1f52f4af919fc4173ae194238b0",
+      "md5": "0bc1888384d0669e19ed70cb895389b3",
+      "totalSize": 522494,
+      "abSize": 662422,
+      "cid": 12
+    },
+    {
+      "name": "shaders/standardice.ab",
+      "hash": "eef1e5ba3373914f3f3f55fd7578fb88",
+      "md5": "0757267ee9eb6c68bfa1a683c097b843",
+      "totalSize": 447915,
+      "abSize": 548054,
+      "cid": 13
+    },
+    {
+      "name": "shaders/standardrealtimeshadow.ab",
+      "hash": "c288ef7f638e7c1bdc7f49057fcb167f",
+      "md5": "c3239548dd936216ebfcd4d065f4cb2f",
+      "totalSize": 3126331,
+      "abSize": 4028592,
+      "cid": 14
+    },
+    {
+      "name": "shaders/standardrealtimeshadowandwaving.ab",
+      "hash": "bec954f6ae3ffcdf047a69905750278a",
+      "md5": "d085aec39e4a8cca00b5364981fe8ed8",
+      "totalSize": 648869,
+      "abSize": 854772,
+      "cid": 15
+    },
+    {
+      "name": "shaders/standardtoon.ab",
+      "hash": "dd9c47f46e3fd7abdf82bf23f6dae733",
+      "md5": "3decc1ace7acbbaec6718bd98df2afa9",
+      "totalSize": 95014,
+      "abSize": 123349,
+      "cid": 16
+    },
+    {
+      "name": "shaders/standardwater.ab",
+      "hash": "c50ef396e0d729e14b7ec165d45edbed",
+      "md5": "94d78b7266bcd444bb98bb531095b5b2",
+      "totalSize": 62049,
+      "abSize": 82352,
+      "cid": 17
+    },
+    {
+      "name": "shaders/stylizedwater.ab",
+      "hash": "f382416de29d054b216d0a1468cd3cd7",
+      "md5": "8708ffac75da10214bf92b321bb9d124",
+      "totalSize": 41766,
+      "abSize": 56895,
+      "cid": 18
+    },
+    {
+      "name": "shaders/stylizedwaterdepth.ab",
+      "hash": "a59e3cc6d022b81a7c041e33a9c35e68",
+      "md5": "05dede30a9c15e8c5a314fec84bab757",
+      "totalSize": 21942,
+      "abSize": 33370,
+      "cid": 19
+    }
+  ],
+  "engineCommit": "f07b8965061bbc311ad7aa815879b09264a1e47d",
+  "extractor": "Stronghold-Protocol tools/local-extract @ fixed engineCommit",
+  "files": {
+    "map/autochess/TX_autochessi_BG.webp": {
+      "bytes": 247576,
+      "sha256": "2aec9eaa33cfc7e3b9cbaf05d1a85110f66c78fa9d8f892d7b49857a14b073ff"
+    },
+    "map/autochess/TX_autochessi_D.webp": {
+      "bytes": 511772,
+      "sha256": "22cefdc2f68af14106e3e74f7118ee703d376fe46c41d53860776fa24b68ff9f"
+    },
+    "map/autochess/TX_autochessi_E.webp": {
+      "bytes": 11648,
+      "sha256": "64e6f7b7a94182ba1e27093453a6fa6023186b9be363717a433193404d7f2157"
+    },
+    "map/autochess/TX_autochessi_M.png": {
+      "bytes": 189819,
+      "sha256": "85f95093779ed543bc00b8f33be67d4d5a6b1b733a9d860e316c5fd754ab6826"
+    },
+    "map/autochess/TX_autochessi_M_rough.webp": {
+      "bytes": 116738,
+      "sha256": "f3cd87a9b4b01c771937a21f9e59fb554fd477aed543ff6e71d0ba68310c06e8"
+    },
+    "map/autochess/TX_autochessi_N.png": {
+      "bytes": 517367,
+      "sha256": "5e30139d4746f3b19a5b549ab90c4744f08fb325136ad94476b7b7368775421c"
+    },
+    "map/autochess/TX_autochessi_N_rgb.webp": {
+      "bytes": 368070,
+      "sha256": "5fe8680dcb00b3ee5836888235f37e150cde058eb9d809222ef8c3a190d91f9d"
+    },
+    "map/autochess/TX_autochessi_Transparent_D.png": {
+      "bytes": 464676,
+      "sha256": "c78d439ed910d0488440ae44c62ac65f0730659b91cee22259a1e8081598b3b2"
+    },
+    "map/autochess/TX_autochessi_Transparent_E.png": {
+      "bytes": 7927,
+      "sha256": "d0992363955e14f0b530bd037e5914c020838b2ca8d6caa132e897e3e92950cb"
+    },
+    "map/autochess/TX_autochessi_Transparent_M.png": {
+      "bytes": 533681,
+      "sha256": "9cce57492e4dcc47d273848869a4fe842913142276022100940e3dc7c7682742"
+    },
+    "map/autochess/TX_autochessi_Transparent_N.png": {
+      "bytes": 340773,
+      "sha256": "4ae72d8a7d9ebb1103d13bd564903ec4dd2414814689a6cd1fa0055fd1b04264"
+    },
+    "map/autochess/TX_autochessi_common_D.webp": {
+      "bytes": 175726,
+      "sha256": "3a8f6747bc6aeff5f65af9648f6e3f4dac9d9df3bb24ba239eeb9e7d96f786e2"
+    },
+    "map/autochess/TX_autochessi_common_E.webp": {
+      "bytes": 30202,
+      "sha256": "884227995f574bb3049acd89ed3d6c59a1ac5122f62e944214ca4e7294b31de1"
+    },
+    "map/autochess/materials.json": {
+      "bytes": 4871,
+      "sha256": "97f67fb0b4dfb4b4c36e64b0f3c78de7706c45089be91cb0421fd0e560286234"
+    },
+    "map/common/TX_wind_device.webp": {
+      "bytes": 88756,
+      "sha256": "5f7af2b74e3bc7453a8674073a505d6d525fd9bf9c94e73590afd8e82ee21199"
+    },
+    "map/common/materials.json": {
+      "bytes": 551,
+      "sha256": "ef60ec00e65d586087b45a5d43b2bcf4cdffc3624331da2c879737ae73aab4a2"
+    },
+    "map/fx/S_start_Fly_down.obj": {
+      "bytes": 254,
+      "sha256": "a018c93f41792dc6df9c9676f35dbfecb540f87abfd584b26859f716063599e5"
+    },
+    "map/fx/S_start_Fly_mid.obj": {
+      "bytes": 252,
+      "sha256": "883c0a08a29233ee4983a73f8549e459188191159cf8d922fca3683cef389912"
+    },
+    "map/fx/S_start_Fly_up.obj": {
+      "bytes": 250,
+      "sha256": "26d10617fb9a7fc4655d437a7647cb265984329fa1fb2cc31a5aa1d470d4cd53"
+    },
+    "map/fx/Start_back.obj": {
+      "bytes": 1688,
+      "sha256": "34469da35db948feefa07b0611bbe8237b65a9ea16f08157c105390584747763"
+    },
+    "map/fx/Start_back_4235658232235163369.obj": {
+      "bytes": 1310,
+      "sha256": "7b1c28467d3a09d71afbec3c839fac94c68f6fec500e23cd04d47fb2d00e93e3"
+    },
+    "map/fx/Start_down.obj": {
+      "bytes": 1998,
+      "sha256": "92fe9173990f5387a40235b13dbcdaee7f9e8fe606d2bd3bb72fa86ec62ce0ae"
+    },
+    "map/fx/Start_down1.obj": {
+      "bytes": 3294,
+      "sha256": "1adfa0df9c5e29478b2a2233b63e56e8a6a1d7d0ee253812ddc4b6890d5d1083"
+    },
+    "map/fx/Start_up.obj": {
+      "bytes": 4920,
+      "sha256": "658b9b259d3d565a83040c92948053b58dbfc60b9f739a4a7c183a98b936a3c2"
+    },
+    "map/fx/Start_up1.obj": {
+      "bytes": 4876,
+      "sha256": "8c7c014af99d027e7a446874e21a544a44b266bd20273f4cd6852754c416df03"
+    },
+    "map/fx/T_ending_A.png": {
+      "bytes": 3344,
+      "sha256": "bed21954d68341b0f643426e1b752bb3f9dac5155d93a2de13b37fa319af93b4"
+    },
+    "map/fx/T_ending_P.png": {
+      "bytes": 2099,
+      "sha256": "db900d435f356c5532849ec5a5fd952dc3e964b415842288a2aecada06a376b6"
+    },
+    "map/fx/T_ending_arrow.png": {
+      "bytes": 1762,
+      "sha256": "4ecb496bc441e2a0dd5cf07a8d527059600dd0c4768ddabe5fddfd663cf702af"
+    },
+    "map/fx/T_ending_grey.png": {
+      "bytes": 4355,
+      "sha256": "69065233a4905a45cb97e433fcfaf0dab8929e043decbc64104b626cb181f2a9"
+    },
+    "map/fx/T_ending_multiplayer_01.png": {
+      "bytes": 4768,
+      "sha256": "1432b6090ba6720082d7fc50fff472389a01503aee0c5ec03eed3e8210197692"
+    },
+    "map/fx/T_ending_multiplayer_02.png": {
+      "bytes": 5681,
+      "sha256": "bf426131e1ddc63dc90cf54193dfdc9a49a3128095d4ec90552e3c160b71da65"
+    },
+    "map/fx/T_ending_multiplayer_03.png": {
+      "bytes": 24770,
+      "sha256": "f34cbf6f75b3623f6f19335f3304e95fa2c721fff8e21034d1efcf3664277deb"
+    },
+    "map/fx/T_ending_multiplayer_04.png": {
+      "bytes": 26972,
+      "sha256": "744beba58906dc572ed6d853a948ac64c3904ced7e342021604756908340a883"
+    },
+    "map/fx/T_starting_A.png": {
+      "bytes": 3279,
+      "sha256": "d9f25dd02bb0cf1ce2941681485c15721c8d07df5d5df221af3223c39a9af27b"
+    },
+    "map/fx/T_starting_A_green.png": {
+      "bytes": 2934,
+      "sha256": "30118f3ceacab18a45f469da3094972e5a0d0aab64d813d8e9103e993da82ab2"
+    },
+    "map/fx/T_starting_Mask.png": {
+      "bytes": 6432,
+      "sha256": "02aba18e602830bfb26539e2cafa228bbcac37b028c54a1762f571b9f7c3e5da"
+    },
+    "map/fx/T_starting_Mask2.png": {
+      "bytes": 8859,
+      "sha256": "7f4e89ad7761fcc154cc7417cb87bd2e6434730d743b5ab063cd9b1106a7c59f"
+    },
+    "map/fx/[opt]merged_textures.webp": {
+      "bytes": 6452,
+      "sha256": "6a4cac48ae2bbc96259d640508df267b9b7c9a58d1235d1c612e3cf894e078fd"
+    },
+    "map/fx/[opt]merged_textures_2.png": {
+      "bytes": 13070,
+      "sha256": "8fbe269264a8b1c082b8b6e77f274e38e9d560d02c7c3f91df3b7442b9df6bfa"
+    },
+    "map/fx/[opt]merged_textures_green.png": {
+      "bytes": 16290,
+      "sha256": "d82c4d34af11a8f90c98ecfa84a6f75a48fea35fa3578d25fae15a41d7ca81e9"
+    },
+    "map/fx/[opt]merged_textures_multiplayer_01.png": {
+      "bytes": 16032,
+      "sha256": "daa41b42191e4df6bd9d319e06e1f572cb4456dc2ec9465cf02bb7cdd477b1fb"
+    },
+    "map/fx/[opt]merged_textures_multiplayer_02.png": {
+      "bytes": 16388,
+      "sha256": "5106bb1d50c81a0ff77417869ef5530bb83250c698697324c33b2cde0096c9eb"
+    },
+    "map/fx/materials.json": {
+      "bytes": 21056,
+      "sha256": "929864e00c14ba0fc1698d621293d41805093dc73334065fb328ab99e99cc13f"
+    },
+    "map/fx/pPlane2.obj": {
+      "bytes": 7213,
+      "sha256": "07ed158202887c2d54d75e64167400eaa5c23f4e40957caac6e9be8bd0acc9a6"
+    },
+    "map/fx/prefab.json": {
+      "bytes": 2786,
+      "sha256": "afad577b77cfe24b5c3aa8e7aabf3e2175f7a0420729e0aaaf50936a12c27308"
+    },
+    "map/water/TX_Caustics256.webp": {
+      "bytes": 16738,
+      "sha256": "438a4a805c5c7341079273a991f5e0c7c5d56097157bcacf0d2674f7c5b32a3a"
+    },
+    "map/water/TX_SmoothWaves.png": {
+      "bytes": 57926,
+      "sha256": "eae3d67699db82f4c915f53257786aeedfdfe3beef35539d01ac680b697a3265"
+    },
+    "map/water/TX_WaterNoise.png": {
+      "bytes": 42422,
+      "sha256": "d9161d153475b93f02355a9f7f8a19cb585c095a5629a03e3dfcabb87cbf730d"
+    },
+    "map/water/TX_Water_Foam.png": {
+      "bytes": 80667,
+      "sha256": "ddbfcf86a830a27fdc724eee77d1ba59cef3ee1404615ca0e5e2796dfc3f76eb"
+    },
+    "map/water/T_noise_clouds_01.webp": {
+      "bytes": 206480,
+      "sha256": "feb744ca26be02b21ad87b795a22e5d5adef27ac24b09fdda4ba26ff943a8aec"
+    },
+    "map/water/[ucp]TX_water_normal.webp": {
+      "bytes": 75056,
+      "sha256": "1ae1efdd17517388fa85cae8584bc8a48e215a77413880d2be3a35ed3f5e0a70"
+    },
+    "mesh/s_background_common/pPlane1.obj": {
+      "bytes": 174,
+      "sha256": "d7256bcfd5f06b7acdce309879c799df22e5e73ccee2c8f866b3046f7c6d2442"
+    },
+    "mesh/s_background_common/prefab.json": {
+      "bytes": 164,
+      "sha256": "a0bc1b858fe39773f3009bf91137b7a75dcad4f289c773c7125a3b4c948a5cc5"
+    },
+    "mesh/s_common_box_01/pCube2.obj": {
+      "bytes": 3200,
+      "sha256": "e6fcb058aee0dd8f56dabb1a4a235b413fd7c0ba8787c78b88db15a0a0d5867c"
+    },
+    "mesh/s_common_box_01/prefab.json": {
+      "bytes": 146,
+      "sha256": "4d9f2a33aa3217a7ed50094b1766bbb4dfee704c38ea5b5e6c8f11ddc769f001"
+    },
+    "mesh/s_wind_device/S_wild_wind_device.obj": {
+      "bytes": 21019,
+      "sha256": "aa7c1b00bd139e5f244f4598b301b63537e9218f123e9f706423d64f44e704ff"
+    },
+    "mesh/s_wind_device/prefab.json": {
+      "bytes": 153,
+      "sha256": "9526c7ec60e11907bf58c0cda89b7b14fadf96382213111151516c3c26c2c505"
+    },
+    "mesh/trap_110/TX_trap_1105_accrate.webp": {
+      "bytes": 78222,
+      "sha256": "ef48b737f557b446d0fe2db638b205570e370c047e100192ff9c1984d6be5d8d"
+    },
+    "mesh/trap_110/TX_trap_1106_achplat.webp": {
+      "bytes": 70306,
+      "sha256": "c7dfaae8b34a87ebbb03afccefb8f93ee651370600469930c89796ded5e80af8"
+    },
+    "mesh/trap_110/materials.json": {
+      "bytes": 1357,
+      "sha256": "54052c685cf544cfb77768325b198089a0f78d9974748e93a7911dc991b37195"
+    },
+    "mesh/trap_110/prefab.json": {
+      "bytes": 353,
+      "sha256": "6d88b5367a2ccc964201dbf9db2d3b42570d9d9c04be4b36ecaa608351675eee"
+    },
+    "mesh/trap_110/trap_1105_accrate.obj": {
+      "bytes": 62395,
+      "sha256": "056e48e15b1e0f1db1a159836bf1ceeb4c746d4000e1c975d6521663d12104e4"
+    },
+    "mesh/trap_110/trap_1106_achplat.obj": {
+      "bytes": 42717,
+      "sha256": "7bc9415b7aa0a6a7221e88ce1be7ad39f9985f6bf1e613a7a5107aad2d3e7a1b"
+    },
+    "scene/act1autochess_m01/scene.bin": {
+      "bytes": 2108116,
+      "sha256": "94012355381a84e8b95180b5a2354015091d49c1fb34f038cc233b71e5e687e6"
+    },
+    "scene/act1autochess_m01/env.png": {
+      "bytes": 158028,
+      "sha256": "d681faa8b12a6eba3fe8352d4f2d68f93f531398d090aab7cc605c8cb1f3bcae"
+    },
+    "scene/act1autochess_m01/lm0.webp": {
+      "bytes": 293246,
+      "sha256": "62b0409976a7dd86482890de77525847967a0ce229258aec8faa612512aa8780"
+    },
+    "scene/act1autochess_m01/lm1.webp": {
+      "bytes": 76692,
+      "sha256": "439c0d7b696e00ae6fd2c31bfe1420edb81312d35fe42dfa790f92ab165bff7e"
+    },
+    "scene/act1autochess_m01/scene.json": {
+      "bytes": 14028,
+      "sha256": "046eb2d5e372db72eaaaee3a6ef624f6477e266b3c0e8cb591fa5652ada4cb97"
+    },
+    "scene/act1autochess_m02/scene.bin": {
+      "bytes": 2014344,
+      "sha256": "546538d3588ebd7953ab02774cc5eb2115ccd8cfbc37c01d5fbd30d16cd40355"
+    },
+    "scene/act1autochess_m02/env.png": {
+      "bytes": 158028,
+      "sha256": "d681faa8b12a6eba3fe8352d4f2d68f93f531398d090aab7cc605c8cb1f3bcae"
+    },
+    "scene/act1autochess_m02/lm0.webp": {
+      "bytes": 283718,
+      "sha256": "94d4d3af49822723200c5ca3ceb4f765d1abee4897beedd80917ecffd882a1be"
+    },
+    "scene/act1autochess_m02/lm1.webp": {
+      "bytes": 51914,
+      "sha256": "46cfb43161df5c51bec0cad69531520caeb3f50e13120db4078fab68dc12a662"
+    },
+    "scene/act1autochess_m02/scene.json": {
+      "bytes": 14366,
+      "sha256": "189e017d5666d0c2517cce15f14b836e8bbc4656daf371f89b5dfd50ce911d02"
+    },
+    "scene/act1autochess_m03/scene.bin": {
+      "bytes": 2090668,
+      "sha256": "d068ccaa086438fc0e4960f98680e522eb7275025b14a4e29f4e14b90e86ec75"
+    },
+    "scene/act1autochess_m03/env.png": {
+      "bytes": 158028,
+      "sha256": "d681faa8b12a6eba3fe8352d4f2d68f93f531398d090aab7cc605c8cb1f3bcae"
+    },
+    "scene/act1autochess_m03/lm0.webp": {
+      "bytes": 325414,
+      "sha256": "322452f3f37aa6b27aa2e54b9f73943537362d4ad2a6d6ec60ac7d3fcb6428c7"
+    },
+    "scene/act1autochess_m03/scene.json": {
+      "bytes": 13703,
+      "sha256": "ce50b3715bd68f65e612009546f510289332cdc59a7cc76244fd2e4eaafd49d1"
+    },
+    "scene/act1autochess_m04/scene.bin": {
+      "bytes": 2080668,
+      "sha256": "54ffe8d09cc5fc264818ba51128eb2bf4236466a92fdd383cc89d0a390502604"
+    },
+    "scene/act1autochess_m04/env.png": {
+      "bytes": 158028,
+      "sha256": "d681faa8b12a6eba3fe8352d4f2d68f93f531398d090aab7cc605c8cb1f3bcae"
+    },
+    "scene/act1autochess_m04/lm0.webp": {
+      "bytes": 320072,
+      "sha256": "593887ef7e5a0c6596cd181becfbaf8ccd1c6b91873c17d198345395128722f4"
+    },
+    "scene/act1autochess_m04/scene.json": {
+      "bytes": 13874,
+      "sha256": "1781fbea4dd672a431c985d6b348764d2b5b301c3e365a4ed8c61c2e404718d1"
+    },
+    "scene/act2autochess_m01/scene.bin": {
+      "bytes": 6544564,
+      "sha256": "db3cef7272c62e38e6440a4861836fe92068f9ce1c9fe2e7a6cda6144cafe3de"
+    },
+    "scene/act2autochess_m01/env.png": {
+      "bytes": 153762,
+      "sha256": "222060730b11baf7dd41579eee0ac830b1dfa6f97884ba1b77aa341a0e601981"
+    },
+    "scene/act2autochess_m01/lm0.webp": {
+      "bytes": 288128,
+      "sha256": "93d47694f8d94cd16c43021a92e67660b611e4cf142387a87ca65121a1c2501e"
+    },
+    "scene/act2autochess_m01/lm1.webp": {
+      "bytes": 240290,
+      "sha256": "e8b1cff11dd96af3e7d807ded9e98f95399ec0dd4ca5e48f9e15bb5690f1112c"
+    },
+    "scene/act2autochess_m01/scene.json": {
+      "bytes": 9674,
+      "sha256": "d7b31c2ac61d09b3e25a6b0cd4ba721c23bec6919e0d14382ec4699f183f225e"
+    },
+    "scene/act2autochess_m02/scene.bin": {
+      "bytes": 2413496,
+      "sha256": "53acec606bbec5261227e02d8dd2acf87fec0c744e97a05cd8fff3bf1bbb85b2"
+    },
+    "scene/act2autochess_m02/env.png": {
+      "bytes": 158028,
+      "sha256": "d681faa8b12a6eba3fe8352d4f2d68f93f531398d090aab7cc605c8cb1f3bcae"
+    },
+    "scene/act2autochess_m02/lm0.webp": {
+      "bytes": 239324,
+      "sha256": "e24a69fb7a08e378ec74d6be4987b5ab7b6d06f6ce3202aa885f2f59039e6736"
+    },
+    "scene/act2autochess_m02/lm1.webp": {
+      "bytes": 151782,
+      "sha256": "fd39bd34df1131c46a58ef6ce6a03708a8c5355f570e40c8fb8aa3950bb78e26"
+    },
+    "scene/act2autochess_m02/lm2.webp": {
+      "bytes": 143556,
+      "sha256": "1320f484dbd02a2fb6f01e81ff7e20e7cca6c84e5a4271d42c9384ca35a11d8d"
+    },
+    "scene/act2autochess_m02/lm3.webp": {
+      "bytes": 177326,
+      "sha256": "b75b7eea2342505e305b0f85fed280615293932e082804479fc791f78c4950bf"
+    },
+    "scene/act2autochess_m02/lm4.webp": {
+      "bytes": 66202,
+      "sha256": "0be36bdb38e97a9c2ef1669a3e147705eee913f5f0e0f9daa805e5a8992eb064"
+    },
+    "scene/act2autochess_m02/scene.json": {
+      "bytes": 17233,
+      "sha256": "8d2f4670f921e7f73b623ff58f01eae7d633cc6bda7b7baf95b7b5c397d97adf"
+    },
+    "scene/act2autochess_m03/scene.bin": {
+      "bytes": 3020640,
+      "sha256": "a2bc4d834d255e1a7a3fb1b4fc9cdd205ac58600ea099605bb145b2e0c17326f"
+    },
+    "scene/act2autochess_m03/env.png": {
+      "bytes": 126484,
+      "sha256": "8aeba07c51c98cc1098b918b020c3fc01b31ec04662014f9d3a3798752e5b09e"
+    },
+    "scene/act2autochess_m03/lm0.webp": {
+      "bytes": 260362,
+      "sha256": "143c66ac8a22be3cc4a4cd920ffbde89eda9b5b2746a7d889055b762c17c3fff"
+    },
+    "scene/act2autochess_m03/lm1.webp": {
+      "bytes": 207622,
+      "sha256": "4e65815ac669c6a7b716d78859b5b98d2db1c100d8b8d0e8e0b63a475db097dd"
+    },
+    "scene/act2autochess_m03/scene.json": {
+      "bytes": 7079,
+      "sha256": "c251423cdddd5084268aee34d83b9645e1cf2760c3bd99a804d723d661d1dd21"
+    },
+    "scene/act2autochess_m04/scene.bin": {
+      "bytes": 2139668,
+      "sha256": "20b0cbb55b95f76e1c45c90fb8797ffe5799a9d288b19973304285402f1e42cf"
+    },
+    "scene/act2autochess_m04/env.png": {
+      "bytes": 158028,
+      "sha256": "d681faa8b12a6eba3fe8352d4f2d68f93f531398d090aab7cc605c8cb1f3bcae"
+    },
+    "scene/act2autochess_m04/lm0.webp": {
+      "bytes": 262510,
+      "sha256": "594f7b336c6c0e94191fd5e6d6e4a2fe13eae00c93e48adbf5b2b0ab28e127c0"
+    },
+    "scene/act2autochess_m04/lm1.webp": {
+      "bytes": 196348,
+      "sha256": "a55cc1efc56dc6475051a93a46d82155bf518f2ba415b243548895b9eec3c571"
+    },
+    "scene/act2autochess_m04/scene.json": {
+      "bytes": 18446,
+      "sha256": "b5dbbf44563caec1674c9dcead9e43e275cfc84ba0c53bb96c519e70980f97ac"
+    },
+    "scene/tex/TX_AutochessSand_A.webp": {
+      "bytes": 353818,
+      "sha256": "9ba36d12460140f6d6648dd76367d90155590a91d1f0ead04a6b3f0d4d8d35d7"
+    },
+    "scene/tex/TX_AutochessSand_Grass_A.webp": {
+      "bytes": 129980,
+      "sha256": "cbceac8bb4b6243e8c03872be1222e597df66ff7785fa112de878ba48f52d59d"
+    },
+    "scene/tex/TX_AutochessSand_Grass_M.webp": {
+      "bytes": 55400,
+      "sha256": "58eb5527eeb60c33e3118eb32767a9fa1448d16b070143d5b6dd6fe8fcf6eb09"
+    },
+    "scene/tex/TX_AutochessSand_Grass_N.webp": {
+      "bytes": 60728,
+      "sha256": "c19d4c9e33d71385aa0f51dbda3977301320d6adfe00a0908353942ff35c5aaf"
+    },
+    "scene/tex/TX_AutochessSand_M.webp": {
+      "bytes": 311720,
+      "sha256": "00182fa052970904149f0daac10d2a70a59847c6ea47ff9c1bea3c9e46c9d11c"
+    },
+    "scene/tex/TX_AutochessSand_N.webp": {
+      "bytes": 286300,
+      "sha256": "9cfa94527eede17007bcee966f9822065f14bb3ba358ddc855fec90489567785"
+    },
+    "scene/tex/TX_AutochessSand_background_A.webp": {
+      "bytes": 11886,
+      "sha256": "b7b9f29444244b76ac072f5a09fb7c07f8364196759e7ffe144f332af7db9a6b"
+    },
+    "scene/tex/TX_AutochessSand_background_N.webp": {
+      "bytes": 193338,
+      "sha256": "304187dd78bf1dd7a0560ed73ddaed12c3508ca4fedcb76c3a94f3477e011f14"
+    },
+    "scene/tex/TX_AutochessSand_common_A.webp": {
+      "bytes": 158224,
+      "sha256": "f961a9822a237a7dd5dbfa82374461dc1fc64373d003b1c43d5151d0f8dc0666"
+    },
+    "scene/tex/TX_AutochessSand_sand_A.webp": {
+      "bytes": 222890,
+      "sha256": "c66cb19be359625fd13c43798b7b869fb3aecfd582fb24408a92e19ca59c3105"
+    },
+    "scene/tex/TX_AutochessSand_shuidi_A.webp": {
+      "bytes": 126168,
+      "sha256": "37e07a6b0c6a3de783afed389f494bf0ff487002c60a775504bfad01c9042069"
+    },
+    "scene/tex/TX_AutochessSand_shuidi_N.webp": {
+      "bytes": 1573844,
+      "sha256": "d799f6732c9421cef24bffbca2e33774f0c0a999b5c4066b9312a60828b9749e"
+    },
+    "scene/tex/TX_KXMR_A.webp": {
+      "bytes": 431118,
+      "sha256": "9271ba3fcfe6f03a3ae595fb763ecace49bc94410455ea8ec00d54868d38322f"
+    },
+    "scene/tex/TX_KXMR_E.webp": {
+      "bytes": 101406,
+      "sha256": "f6b53ad39a71cef718ba24eba123a72f1a2aeea220219021c8e48411798fa978"
+    },
+    "scene/tex/TX_KXMR_M.webp": {
+      "bytes": 82050,
+      "sha256": "3fd4ffb80595ca3a28315c32ea4181e4366ca313f6b490287e3a7aca05558964"
+    },
+    "scene/tex/TX_KXMR_N.webp": {
+      "bytes": 194770,
+      "sha256": "cfdfbf7521886caa40fbd83e115eecb07090cb9c0a48e9fa08c09609a058f1d1"
+    },
+    "scene/tex/TX_LMC_common_M.webp": {
+      "bytes": 100828,
+      "sha256": "70355f0aad626db8adeb21f33812a14397e9262589f702c60a1a5bc417531060"
+    },
+    "scene/tex/TX_LMZ_A.webp": {
+      "bytes": 123394,
+      "sha256": "41160dde5c7c713e803c191ce1475e64724fdee01b41331484eb3a8d950768a0"
+    },
+    "scene/tex/TX_LMZ_E.webp": {
+      "bytes": 50700,
+      "sha256": "167497ed8455d091371ef78e0d1c88eb519bc57febc78ad5082fb04416c9ce35"
+    },
+    "scene/tex/TX_LMZ_M.webp": {
+      "bytes": 370918,
+      "sha256": "779ea649d9f18213abd12b7b1d0acec503e5b6fd71e8ccff589e46ece6a6e2f2"
+    },
+    "scene/tex/TX_LMZ_N.webp": {
+      "bytes": 236456,
+      "sha256": "55c93b6f7c5b1253e2f30c5ddbf2f3386aac7726738ab1f052e404b1f4ffe415"
+    },
+    "scene/tex/TX_LMZ_common.webp": {
+      "bytes": 186614,
+      "sha256": "95b0f04644d9487bf43bd638d2acd88398a628fc86c79480f8fc6390bdab9a35"
+    },
+    "scene/tex/TX_LMZ_common_E.webp": {
+      "bytes": 10580,
+      "sha256": "072f9c20f8c972e0877a6e6843a64df7ebd0653487b78656551cfd814ee8d0f8"
+    },
+    "scene/tex/TX_Syracuse_metro_BG.webp": {
+      "bytes": 29198,
+      "sha256": "4eb083bb0598e67d626300c93c6b2397e7aca5b2491cc6a18da98acb3af5d45a"
+    },
+    "scene/tex/TX_Syracuse_metro_D.webp": {
+      "bytes": 720914,
+      "sha256": "835b76524293a097f0635ed59e50aac2b9b449857f22367212748ed66ac0f13b"
+    },
+    "scene/tex/TX_Syracuse_metro_E.webp": {
+      "bytes": 3622,
+      "sha256": "bde786161f3da11d3beb20f4d594e4751279e29438abc22d5c45b0000e008e01"
+    },
+    "scene/tex/TX_Syracuse_metro_M.webp": {
+      "bytes": 489314,
+      "sha256": "0ceb6853370ddc3766525cf3a0b08740b72fcc1a8ff37b66c7b567b87780617e"
+    },
+    "scene/tex/TX_Syracuse_metro_N.webp": {
+      "bytes": 432100,
+      "sha256": "96c6633bc4c522a8247db481ab22373bb3f8320fc88051c63467ef8bf17dd6ae"
+    },
+    "scene/tex/TX_Syracuse_metro_common_D.webp": {
+      "bytes": 104850,
+      "sha256": "04c2899a6fa50c0e22c9796bef4932dd987862148f8e1be8f38b297aa5075d35"
+    },
+    "scene/tex/TX_Syracuse_metro_common_E.webp": {
+      "bytes": 15824,
+      "sha256": "2b7ed2308c86c90b0ca28e2417a762817caf6ca6a383661e0eb2f7de562e0fae"
+    },
+    "scene/tex/TX_Syracuse_metro_common_M.webp": {
+      "bytes": 13784,
+      "sha256": "426022094203d3695cd8040c647f97f254e29c7c86e38c5d6103050bbed7d944"
+    },
+    "scene/tex/TX_Syracuse_metro_floor_D.webp": {
+      "bytes": 41966,
+      "sha256": "cbb0468b56b3c3f82a0a43c871178e9b6f0f736aa30448eda373f016c3a1195d"
+    },
+    "scene/tex/TX_Syracuse_metro_floor_M.webp": {
+      "bytes": 96238,
+      "sha256": "083a5419a6ef264224f87e0c18677a401d953afd94d5982c2a858f0c5b96e1a0"
+    },
+    "scene/tex/TX_Syracuse_metro_floor_N.webp": {
+      "bytes": 344110,
+      "sha256": "33a42dd482bb07168c895cee22f3920245015428c43d42e4fd4497e759152fb4"
+    },
+    "scene/tex/TX_Syracuse_metro_grass_D.webp": {
+      "bytes": 69192,
+      "sha256": "4613576339a6d8f2f0fbe77290ddf288761dd4179aecd5c759d60ee8499e593c"
+    },
+    "scene/tex/TX_Syracuse_metro_grass_M.webp": {
+      "bytes": 15034,
+      "sha256": "94ace323666d95b8062a952d4f1073374b6130fb34d2ea218d9406482051b19a"
+    },
+    "scene/tex/fangkuai_06.webp": {
+      "bytes": 140,
+      "sha256": "ec13deee11c38ef9601012f34dc4022f9d451416d95076d396f76ae68c0172d7"
+    },
+    "map/autochess/tiles.json": {
+      "bytes": 8766,
+      "sha256": "a15aa1d0351f56d5c204e25a36319081155258528a58eeef19198b8dfe34d413"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/sganggs/Stronghold-Protocol",
+  "commit": "55f528e9fc4872388360ee85e13eca8594856204",
+  "sourceDirectory": "public/js/render",
+  "files": {
+    "tiles.js": "3751c588505e32364e6136de71302c8ad6886e8fab73015494e70869fa0d0288",
+    "style.js": "c6f43a9045b856753b9057456ab5d558e64f743c7998c71e1664a3e5d1c708b2",
+    "projection.js": "00609e8f1b37e3f01fa702ad7abbe34abb8cf147f079b2071e838ff3806112ee",
+    "boardArt.js": "dbcc0b37c64b1bfc692cca7852830f2476c9943246057e23896905c7609ed9f5",
+    "pen.js": "ce79effc204c8f5c2ea7533ba520610d522156e310ab253538d67d222dfbd1a6",
+    "textures.js": "b9d362814a7320e363bc123b25a9b9580cb340742fb5532a3915b0591253b309",
+    "board3d/materials.js": "a5d91130407a3d957d48aad9ede652e2a76f234da681b53a910f05314c2a5643",
+    "board3d/layout.js": "2867c63b9ca910298268f574b349231c7ce376d0d61a40c08b2c4b428f403d04",
+    "board3d/scene.js": "d9e0b96ebe621eabecb494da0db50fe3bd6b7e6be075ae462f421e95ad184954",
+    "board3d/load.js": "7e926ab622d08f923cedbbafe38a3524a9c4c362bc8a87c4b7d94c6a6c95a863",
+    "board3d/atlas.js": "7154880c5148acf14024ee99347588b7b48f94ab2e67c9fb860621ede9ae6511",
+    "board3d/obj.js": "3a43a98f9c058f145fd6c7047f939b8c8b406e222dddfe3d644285149a3bd852"
+  }
+}

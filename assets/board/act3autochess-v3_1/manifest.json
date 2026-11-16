@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "source": "26-11-06-12-42-25-70182449",
+  "groups": {
+    "scene/act3autochess_m01": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m01/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m01/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m01/scene.json"
+      }
+    },
+    "scene/act3autochess_m02": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m02/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m02/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m02/scene.json"
+      }
+    },
+    "scene/act3autochess_m03": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m03/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m03/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m03/scene.json"
+      }
+    },
+    "scene/act3autochess_m04": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m04/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m04/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m04/scene.json"
+      }
+    },
+    "scene/act3autochess_m05": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m05/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m05/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m05/scene.json"
+      }
+    },
+    "scene/act3autochess_m06": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m06/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m06/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m06/scene.json"
+      }
+    },
+    "scene/act3autochess_m09": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m09/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m09/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m09/scene.json"
+      }
+    },
+    "scene/act3autochess_m10": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m10/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m10/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m10/scene.json"
+      }
+    },
+    "scene/act3autochess_m11": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m11/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m11/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m11/scene.json"
+      }
+    },
+    "scene/act3autochess_m12": {
+      "lm0": {
+        "path": "/assets/local/scene/act3autochess_m12/lm0.webp"
+      },
+      "bin": {
+        "path": "/assets/local/scene/act3autochess_m12/scene.bin"
+      },
+      "scene": {
+        "path": "/assets/local/scene/act3autochess_m12/scene.json"
+      }
+    },
+    "scene/tex": {
+      "TX_AutochessSand_A": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_A.webp"
+      },
+      "TX_AutochessSand_Grass_A": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_Grass_A.webp"
+      },
+      "TX_AutochessSand_Grass_M": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_Grass_M.webp"
+      },
+      "TX_AutochessSand_Grass_N": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_Grass_N.webp"
+      },
+      "TX_AutochessSand_M": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_M.webp"
+      },
+      "TX_AutochessSand_N": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_N.webp"
+      },
+      "TX_AutochessSand_background_A": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_background_A.webp"
+      },
+      "TX_AutochessSand_background_N": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_background_N.webp"
+      },
+      "TX_AutochessSand_common_A": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_common_A.webp"
+      },
+      "TX_AutochessSand_sand_A": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_sand_A.webp"
+      },
+      "TX_AutochessSand_shuidi_A": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_shuidi_A.webp"
+      },
+      "TX_AutochessSand_shuidi_N": {
+        "path": "/assets/local/scene/tex/TX_AutochessSand_shuidi_N.webp"
+      },
+      "TX_Syracuse_metro_BG": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_BG.webp"
+      },
+      "TX_Syracuse_metro_D": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_D.webp"
+      },
+      "TX_Syracuse_metro_E": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_E.webp"
+      },
+      "TX_Syracuse_metro_M": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_M.webp"
+      },
+      "TX_Syracuse_metro_N": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_N.webp"
+      },
+      "TX_Syracuse_metro_common_D": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_common_D.webp"
+      },
+      "TX_Syracuse_metro_common_E": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_common_E.webp"
+      },
+      "TX_Syracuse_metro_common_M": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_common_M.webp"
+      },
+      "TX_Syracuse_metro_floor_D": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_floor_D.webp"
+      },
+      "TX_Syracuse_metro_floor_M": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_floor_M.webp"
+      },
+      "TX_Syracuse_metro_floor_N": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_floor_N.webp"
+      },
+      "TX_Syracuse_metro_grass_D": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_grass_D.webp"
+      },
+      "TX_Syracuse_metro_grass_M": {
+        "path": "/assets/local/scene/tex/TX_Syracuse_metro_grass_M.webp"
+      },
+      "TX_church_tower_BG": {
+        "path": "/assets/local/scene/tex/TX_church_tower_BG.webp"
+      },
+      "TX_church_tower_D": {
+        "path": "/assets/local/scene/tex/TX_church_tower_D.webp"
+      },
+      "TX_church_tower_E": {
+        "path": "/assets/local/scene/tex/TX_church_tower_E.webp"
+      },
+      "TX_church_tower_M": {
+        "path": "/assets/local/scene/tex/TX_church_tower_M.webp"
+      },
+      "TX_church_tower_N": {
+        "path": "/assets/local/scene/tex/TX_church_tower_N.webp"
+      },
+      "TX_church_tower_Transparent_D": {
+        "path": "/assets/local/scene/tex/TX_church_tower_Transparent_D.webp"
+      },
+      "TX_church_tower_Transparent_M": {
+        "path": "/assets/local/scene/tex/TX_church_tower_Transparent_M.webp"
+      },
+      "TX_church_tower_Transparent_N": {
+        "path": "/assets/local/scene/tex/TX_church_tower_Transparent_N.webp"
+      },
+      "TX_church_tower_common_D": {
+        "path": "/assets/local/scene/tex/TX_church_tower_common_D.webp"
+      },
+      "TX_church_tower_common_E": {
+        "path": "/assets/local/scene/tex/TX_church_tower_common_E.webp"
+      },
+      "TX_icewild_A": {
+        "path": "/assets/local/scene/tex/TX_icewild_A.webp"
+      },
+      "TX_icewild_E": {
+        "path": "/assets/local/scene/tex/TX_icewild_E.webp"
+      },
+      "TX_icewild_M": {
+        "path": "/assets/local/scene/tex/TX_icewild_M.webp"
+      },
+      "TX_icewild_N": {
+        "path": "/assets/local/scene/tex/TX_icewild_N.webp"
+      },
+      "TX_icewild_common_E": {
+        "path": "/assets/local/scene/tex/TX_icewild_common_E.webp"
+      },
+      "TX_icewild_common_M": {
+        "path": "/assets/local/scene/tex/TX_icewild_common_M.webp"
+      },
+      "TX_wild_common_A": {
+        "path": "/assets/local/scene/tex/TX_wild_common_A.webp"
+      }
+    }
+  }
+}

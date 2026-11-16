@@ -1,0 +1,355 @@
+{
+  "clientVersion": "26-11-06-12-42-25-70182449",
+  "source": "https://ak.hycdn.cn/assetbundle/official/Windows/assets/26-11-06-12-42-25-70182449/",
+  "bundles": {
+    "arts/maps/common/meshes/s_background_common.ab": "7afb594594bff23ac985fc1d2745ee9f",
+    "arts/maps/effect.ab": "282c10e2eb02ada9c94f9907c86e889c",
+    "arts/maps/map_autochesssand/res.ab": "59374e3e0f5cb6f3018275f5af65b04d",
+    "arts/maps/map_icewild/background_mesh/s_background_icewild.ab": "7462a5dca3486fb5dd129ae729802a9b",
+    "arts/maps/map_icewild/res.ab": "da3b9992e424a510959b92d753cd61dd",
+    "arts/maps/map_ltny2/background_mesh/bg_church_tower.ab": "f65d3c60ceb2358ba392a26f18ac93e7",
+    "arts/maps/map_ltny2/res.ab": "e5c98a500f0c55862b7b584c72b0a594",
+    "arts/maps/map_syracuse_metro/res.ab": "3d6f922fb78fb2b270951df6a62dca39",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m01/level_act3autochess_m01_sub_01/level_act3autochess_m01_sub_01.ab": "d0aa895a141594efa3e12dbe7111fc32",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m01/level_act3autochess_m01_sub_02/level_act3autochess_m01_sub_02.ab": "93ee0ed0dcaf3547ab238c71924d8879",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m01/level_act3autochess_m01_sub_03/level_act3autochess_m01_sub_03.ab": "b7ff4aba8649c67d6b4c563e6bdaf06d",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m02/level_act3autochess_m02_sub_01/level_act3autochess_m02_sub_01.ab": "7607e96e532494fd15e217ed7975a90a",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m02/level_act3autochess_m02_sub_02/level_act3autochess_m02_sub_02.ab": "bf7d60ea4e8c1e238d6c88ef6ef88b46",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m02/level_act3autochess_m02_sub_03/level_act3autochess_m02_sub_03.ab": "1bb46bc478405cece50ba11ee98405fd",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m03/level_act3autochess_m03_sub_01/level_act3autochess_m03_sub_01.ab": "5628ee820643e81592f0d9246edb8860",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m03/level_act3autochess_m03_sub_02/level_act3autochess_m03_sub_02.ab": "bb8ce9f4d5308ec2b0cd767989941fe0",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m03/level_act3autochess_m03_sub_03/level_act3autochess_m03_sub_03.ab": "300622df1b6eb4cbafceca7bf8886f84",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m04/level_act3autochess_m04_sub_01/level_act3autochess_m04_sub_01.ab": "7f893a3076d53ac59e8cce231a1bc8f5",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m04/level_act3autochess_m04_sub_02/level_act3autochess_m04_sub_02.ab": "971c8e9492ff396dae5ec42a65d6d139",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m04/level_act3autochess_m04_sub_03/level_act3autochess_m04_sub_03.ab": "147bd8ee15d852aa67d46fcfd83773e6",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m05/level_act3autochess_m05_sub_01/level_act3autochess_m05_sub_01.ab": "ff9a246a4ccbddff3288c6ad2e688102",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m05/level_act3autochess_m05_sub_02/level_act3autochess_m05_sub_02.ab": "b7b181b2292de31ff1cfcad6e92eee4a",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m05/level_act3autochess_m05_sub_03/level_act3autochess_m05_sub_03.ab": "70320ac9320d0b47af3f0b303de50cde",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m06/level_act3autochess_m06_sub_01/level_act3autochess_m06_sub_01.ab": "50a3c673164614541ebe4ff85def6e3b",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m06/level_act3autochess_m06_sub_02/level_act3autochess_m06_sub_02.ab": "94978034a55262fc274fc6fd0a59f6e8",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m06/level_act3autochess_m06_sub_03/level_act3autochess_m06_sub_03.ab": "9eec6c9e44468524d5f6a544b401f4a0",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m09/level_act3autochess_m09_sub_01/level_act3autochess_m09_sub_01.ab": "84a90c128a6c40f71125e186dda47b77",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m09/level_act3autochess_m09_sub_02/level_act3autochess_m09_sub_02.ab": "a79bd759bb231ae9cb32ca4c4e1320e0",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m09/level_act3autochess_m09_sub_03/level_act3autochess_m09_sub_03.ab": "c36c11b1d94f1782aaf7ec6dadbf8175",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m10/level_act3autochess_m10_sub_01/level_act3autochess_m10_sub_01.ab": "7166a0c4771c2492c369c9d212e2c980",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m10/level_act3autochess_m10_sub_02/level_act3autochess_m10_sub_02.ab": "0316e6483069e405f21f8e54930852d7",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m10/level_act3autochess_m10_sub_03/level_act3autochess_m10_sub_03.ab": "dfa7f046746f73887087ac06ff6e2d25",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m11/level_act3autochess_m11_sub_01/level_act3autochess_m11_sub_01.ab": "089d2d9622610310de9f0fef735c1c36",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m11/level_act3autochess_m11_sub_02/level_act3autochess_m11_sub_02.ab": "540a2e028f9e0dc2fee23eec98ea8bb0",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m11/level_act3autochess_m11_sub_03/level_act3autochess_m11_sub_03.ab": "e5e65d237ffdfb83371217334f04d45d",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m12/level_act3autochess_m12_sub_01/level_act3autochess_m12_sub_01.ab": "60b7feae7f4ddbc0f023d05cec0922a2",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m12/level_act3autochess_m12_sub_02/level_act3autochess_m12_sub_02.ab": "df2a3f5c31608c1a2af56e5c6cdc3619",
+    "battle/prefabs/levelprefabs/activities/act3autochess/level_act3autochess_m12/level_act3autochess_m12_sub_03/level_act3autochess_m12_sub_03.ab": "ddaf548858edcbfc0f9242338a83bbcd",
+    "shaders/dynamicwatertile.ab": "d55599faf7b734295afa0f8b593f4c98",
+    "shaders/other.ab": "0f8df84c2c2549847d2b28dfbeddbeb3",
+    "shaders/special.ab": "d83bd890bff98d5ff87da846f66d20db",
+    "shaders/standard.ab": "eff7b4ee5403364019ebcb98a0aabd28",
+    "shaders/standardblend.ab": "578431b5c3c0ded164a815bb4bf9ebd2",
+    "shaders/standardbloom.ab": "22df910b2bdbb5086047db2fb5e6e6a1",
+    "shaders/standardbloomandwaving.ab": "e9f3a730f2566e146a447c044f342f08",
+    "shaders/standarddirectional.ab": "8e9fc9c70507e05eb8aa0ce97c018c64",
+    "shaders/standarddirectionaldissolve.ab": "ca066abc190f8bcf3dd70189ac17ccc6",
+    "shaders/standardflowsand.ab": "8a08c21e06d058f6ef4096fbd78d8c8a",
+    "shaders/standardhighlight.ab": "cd6a5bfd3099672c4e4636a96239c70b",
+    "shaders/standardice.ab": "6dced920b77654ac2c090ffb7209f13d",
+    "shaders/standardrealtimeshadow.ab": "daea8d2bb46b9258e4b0944a090d7087",
+    "shaders/standardrealtimeshadowandwaving.ab": "32fb5cdc61bc1bbde9336297ce31bfbd",
+    "shaders/standardrockmix.ab": "ea73ac2d39f8152f08e1520d93b4af93",
+    "shaders/standardtoon.ab": "c1b979400e1b77850cb5d73dc216c8b7",
+    "shaders/standardwater.ab": "9fe86e27250d0320caf26b095c3b9b19",
+    "shaders/stylizedwater.ab": "a082c71693c185882ce04858d847de00",
+    "shaders/stylizedwaterdepth.ab": "e0315cd7b29b27daa677149a2b55f482",
+    "ui/autochess/[uc]autochesscommon.ab": "cade5b362b090686cbba1a638f20ba0a"
+  },
+  "extractor": "https://github.com/sganggs/Stronghold-Protocol/blob/55f528e9fc4872388360ee85e13eca8594856204/tools/local-extract/regulation_scenes.py",
+  "files": {
+    "scene/act3autochess_m01/lm0.webp": {
+      "sha256": "526f91b5f6043871c59ebba5f81187b690d99184c99bbb88f45960541c8130e7",
+      "bytes": 882326
+    },
+    "scene/act3autochess_m01/scene.bin": {
+      "sha256": "d4d7063ad2ee94496bab218fc1807dcc89ef0365b63269bdaa5b1ff195f5bbd5",
+      "bytes": 4024268
+    },
+    "scene/act3autochess_m01/scene.json": {
+      "sha256": "8f4a16250f0fa4add5ba0b33019ed80791e90e64a62cb9c082751c2bbee52765",
+      "bytes": 16020
+    },
+    "scene/act3autochess_m02/lm0.webp": {
+      "sha256": "ed271391cf073bca28299a799c83bc1e01fa0fc1923438d49efe2fa4252e17b8",
+      "bytes": 836996
+    },
+    "scene/act3autochess_m02/scene.bin": {
+      "sha256": "53afab5653d6f7d12ab9cd51744c0899cc45b69b74af6a1e29ef3f59b7222b1a",
+      "bytes": 3924844
+    },
+    "scene/act3autochess_m02/scene.json": {
+      "sha256": "ab31f94ef084627b1cbb79da6b1b892eb93109dbf3f6dea08031d776be35a0d5",
+      "bytes": 15852
+    },
+    "scene/act3autochess_m03/lm0.webp": {
+      "sha256": "d2105523f12d71a6804dd09834f9fd5294ed51a3d09a3beb09a1cb03d666ecf2",
+      "bytes": 840898
+    },
+    "scene/act3autochess_m03/scene.bin": {
+      "sha256": "31526325c5ec7c9951595d24cf94932340b815a9b302b54077e501d86510dbba",
+      "bytes": 3847108
+    },
+    "scene/act3autochess_m03/scene.json": {
+      "sha256": "b5f32b41f3731f84029c8edf6fc3ff081b5ed159e41e21be7818fa974f148256",
+      "bytes": 16024
+    },
+    "scene/act3autochess_m04/lm0.webp": {
+      "sha256": "4cc56e9ed3d966eee3c4b0b1fae7ac72c95025cd92a11c01d144f0249791dad7",
+      "bytes": 828854
+    },
+    "scene/act3autochess_m04/scene.bin": {
+      "sha256": "5f1f3153e1064d6a489b4deb37d38121c99f1206bef7dafa62bc9b9cec558c2a",
+      "bytes": 3973064
+    },
+    "scene/act3autochess_m04/scene.json": {
+      "sha256": "a628661a027919d665d8895ed110600de3c30995a4f5f6078974cee7f8d0bc1d",
+      "bytes": 15855
+    },
+    "scene/act3autochess_m05/lm0.webp": {
+      "sha256": "def57ab5229efd0f48bee788f530fbeaab262d819ba88d5e88256bf6c3ffc55d",
+      "bytes": 1174256
+    },
+    "scene/act3autochess_m05/scene.bin": {
+      "sha256": "1ae8a1831d3f5d2037380726756000cac46d51f94edd163bfe12a8bcc87f89f1",
+      "bytes": 9937228
+    },
+    "scene/act3autochess_m05/scene.json": {
+      "sha256": "c741ee2be87dbd4b5709a0ea1e9f5e9807579d2962da8b78a86f108e653f0ed5",
+      "bytes": 9924
+    },
+    "scene/act3autochess_m06/lm0.webp": {
+      "sha256": "3307680f20c2fc3c44345b93a8553c753429569f7824a638e6e23ef01bf3a4c1",
+      "bytes": 783978
+    },
+    "scene/act3autochess_m06/scene.bin": {
+      "sha256": "400d84f01715338afeac2d6690e4f64de4c7620c58cc23c5b88b8032e67011b3",
+      "bytes": 4690140
+    },
+    "scene/act3autochess_m06/scene.json": {
+      "sha256": "7e3ee772c50872674787eba75db6052f4f7acfce9835258d636c27cc6e5383a3",
+      "bytes": 16025
+    },
+    "scene/act3autochess_m09/lm0.webp": {
+      "sha256": "e713795e051c2e0f93b6384d3d427359b11ddada62a0f765c67674d7b83b9c36",
+      "bytes": 863418
+    },
+    "scene/act3autochess_m09/scene.bin": {
+      "sha256": "06db42bbaade4b1e8257d7c0fb7fc031287d4aaa7212fbac484bcaf0af509ce3",
+      "bytes": 4337020
+    },
+    "scene/act3autochess_m09/scene.json": {
+      "sha256": "43b5bb71ad60042c3dc9f878a75c55f3168ab7097a86f1a9aea3a9e24f65682e",
+      "bytes": 6493
+    },
+    "scene/act3autochess_m10/lm0.webp": {
+      "sha256": "567266dc75db28ad3a316b294952a97714ace0eecc370f188245798f3a24932e",
+      "bytes": 1854770
+    },
+    "scene/act3autochess_m10/scene.bin": {
+      "sha256": "38583ca4c610e6d1b780a2c37ab037ae6dcc7f6de99acfff99409debd6b0305b",
+      "bytes": 15241108
+    },
+    "scene/act3autochess_m10/scene.json": {
+      "sha256": "7cc3abc1c2a3e53f5a75b5d5c28182f345f97b1d0dc6b82186864627603f0c56",
+      "bytes": 8606
+    },
+    "scene/act3autochess_m11/lm0.webp": {
+      "sha256": "7b0bdeaf7d9ad800174fcac8a530df30027657fdd84ff38a16ceefe49bc97b34",
+      "bytes": 914224
+    },
+    "scene/act3autochess_m11/scene.bin": {
+      "sha256": "8d5a9a37969ec3040e5d4c0077cc0792b3520101c87434b475e9d016ee5d8b8f",
+      "bytes": 4339756
+    },
+    "scene/act3autochess_m11/scene.json": {
+      "sha256": "16fd15257f24db63f8616e175ee03b0016fa77c461af0c735ed635a199c8080c",
+      "bytes": 6494
+    },
+    "scene/act3autochess_m12/lm0.webp": {
+      "sha256": "01d53ce49850244a26cfcf4269df4a3aef884fab02e2b5b4b2b98c06df6f61cf",
+      "bytes": 1831120
+    },
+    "scene/act3autochess_m12/scene.bin": {
+      "sha256": "7efcc16d2e51cdaa5217d91d3ecef6faa9df553ff3871451d6507a4417a11989",
+      "bytes": 15580648
+    },
+    "scene/act3autochess_m12/scene.json": {
+      "sha256": "9850fd1550d98e623d4777881e6bb5834dbffdc97837c8f326369279ffc9d3a8",
+      "bytes": 8954
+    },
+    "scene/tex/TX_AutochessSand_A.webp": {
+      "sha256": "6780c505d39e258dc63fe165e26e5ebfeb2a7a4e5e91cf292cd5b56f94d3e109",
+      "bytes": 491478
+    },
+    "scene/tex/TX_AutochessSand_Grass_A.webp": {
+      "sha256": "2d2ee1cc1762706de526282c953f7e0c3080d4c3ce72a98b2f3123d190c7baf9",
+      "bytes": 141260
+    },
+    "scene/tex/TX_AutochessSand_Grass_M.webp": {
+      "sha256": "b54aea82b4a7b2868fbf18757085f8ed7d0d11748429af60b41586a5a058ed72",
+      "bytes": 52542
+    },
+    "scene/tex/TX_AutochessSand_Grass_N.webp": {
+      "sha256": "89871a6868a35483f063eb2decbc491d6a9fafc3ee9acf984c140fc7ba5008e1",
+      "bytes": 66668
+    },
+    "scene/tex/TX_AutochessSand_M.webp": {
+      "sha256": "b18dd0aa912665e20f849d9a6b2fa5b037b3b2857a12071e7f16c29c6fdebf9b",
+      "bytes": 326570
+    },
+    "scene/tex/TX_AutochessSand_N.webp": {
+      "sha256": "08a8c4d7a31f1294716af50f46cbd6a1ac2a8e5bb752acdcad3aae43f1b2615f",
+      "bytes": 304604
+    },
+    "scene/tex/TX_AutochessSand_background_A.webp": {
+      "sha256": "8ba76483fa0d192d2aa807b796519ce13b466104df5eae2094f7c43e0af5f4ca",
+      "bytes": 24214
+    },
+    "scene/tex/TX_AutochessSand_background_N.webp": {
+      "sha256": "70c3681b61454abe00c189972520a67e0d61a0e2afa124bc2e7d31bc2d41825e",
+      "bytes": 214140
+    },
+    "scene/tex/TX_AutochessSand_common_A.webp": {
+      "sha256": "0526743258b524c7ec660c6458983f888ab4ca86cba638b704a3ef7a42fe3d1b",
+      "bytes": 173470
+    },
+    "scene/tex/TX_AutochessSand_sand_A.webp": {
+      "sha256": "53a8e9a9cdddbf11f29d854875f5ab7b7f4f6b5cf0e5f35c62b72d89705d1df3",
+      "bytes": 234474
+    },
+    "scene/tex/TX_AutochessSand_shuidi_A.webp": {
+      "sha256": "0e55d7d42133415a62e846452d8aef6718a2a354ca895628f949fe739ad01651",
+      "bytes": 189394
+    },
+    "scene/tex/TX_AutochessSand_shuidi_N.webp": {
+      "sha256": "b470dcf529d568ce15ec035d44d05b29975bebfb71c0d2f9c1cc30d5e3891c6c",
+      "bytes": 1747440
+    },
+    "scene/tex/TX_Syracuse_metro_BG.webp": {
+      "sha256": "6e1ca6a6e9faafe777739e8dd0fcfe98d2369a42fbc5d98514767fcf561d9f3e",
+      "bytes": 63298
+    },
+    "scene/tex/TX_Syracuse_metro_D.webp": {
+      "sha256": "c038ba7cfdaccf1b1d19e3ddd15bf459cad43b3e00400c138f1a01225db9b572",
+      "bytes": 951298
+    },
+    "scene/tex/TX_Syracuse_metro_E.webp": {
+      "sha256": "d3e24d0ce721d8e8c1906e5e0a0fc6bfdd62db714fa46658b74db52f04139300",
+      "bytes": 4080
+    },
+    "scene/tex/TX_Syracuse_metro_M.webp": {
+      "sha256": "7b0bef6053f8a0d2ebb0d204a16666f4160229f921555e9c57eec8d5759514e8",
+      "bytes": 513512
+    },
+    "scene/tex/TX_Syracuse_metro_N.webp": {
+      "sha256": "b8ab4c05bdf50dff5008b1b06d93d479287f1038791a263291c6775da06fb3a9",
+      "bytes": 519582
+    },
+    "scene/tex/TX_Syracuse_metro_common_D.webp": {
+      "sha256": "b20fbd2907c73447413d5d3da8adb621e8e77d7c9a9a5b969998dc11da9b2975",
+      "bytes": 113448
+    },
+    "scene/tex/TX_Syracuse_metro_common_E.webp": {
+      "sha256": "279cfbb6ae2ed9a380974a1d7018322a6f81b3a720118372dc6ffdcb52510400",
+      "bytes": 17312
+    },
+    "scene/tex/TX_Syracuse_metro_common_M.webp": {
+      "sha256": "140280d904863cde4d8871fdc2795e71bcebbdb0368fdd10a71b4ddf16159740",
+      "bytes": 14134
+    },
+    "scene/tex/TX_Syracuse_metro_floor_D.webp": {
+      "sha256": "f183d7504bbc19d1e478b7bbe1e82b1b5d9b5da33f936d20e82d6a6228f5bfe2",
+      "bytes": 62622
+    },
+    "scene/tex/TX_Syracuse_metro_floor_M.webp": {
+      "sha256": "102362eff98a05da46e63262b530b23b645a0ea018fc6844c0e784977f2ee78e",
+      "bytes": 97322
+    },
+    "scene/tex/TX_Syracuse_metro_floor_N.webp": {
+      "sha256": "c5ece7b0023e56d992d6299d8223352d4107391e1b72ae75622ee4e33bcdff9c",
+      "bytes": 392908
+    },
+    "scene/tex/TX_Syracuse_metro_grass_D.webp": {
+      "sha256": "08ff041278eea665029e503f080ddf1c3f78cbf6314970d3418833767a3c8a2f",
+      "bytes": 78004
+    },
+    "scene/tex/TX_Syracuse_metro_grass_M.webp": {
+      "sha256": "43f3f0a3a405a54a191749a6b057c0328da6a9cad0622afd5248e43b2b87ad07",
+      "bytes": 14942
+    },
+    "scene/tex/TX_church_tower_BG.webp": {
+      "sha256": "cbcde231c0e425fb867d557c85f4176495d4046274f4bc4d68b2a1978522db04",
+      "bytes": 185526
+    },
+    "scene/tex/TX_church_tower_D.webp": {
+      "sha256": "a212312031cf0274df94d119f521a69dd2bd2ee22406e1a67fe63fb59b346fc9",
+      "bytes": 581400
+    },
+    "scene/tex/TX_church_tower_E.webp": {
+      "sha256": "0e3a6679f6649019a7ec48c2fa5a82ee4fd6600b430f953f8d9f7ca814a525a5",
+      "bytes": 3124
+    },
+    "scene/tex/TX_church_tower_M.webp": {
+      "sha256": "14c7a805b37ff89c7f77821b08d538edf51990b839e3c39c338cfc1e7ffce05c",
+      "bytes": 268582
+    },
+    "scene/tex/TX_church_tower_N.webp": {
+      "sha256": "2d649c38e6a547de4517042b0670240f6e982106a2f9cd7cf377e6f0d1bc4c66",
+      "bytes": 345860
+    },
+    "scene/tex/TX_church_tower_Transparent_D.webp": {
+      "sha256": "e157ba1a6c70c9cc2cd43dadcf9e9a75c6ee91530f4af12537ad69ee1d6bce37",
+      "bytes": 175524
+    },
+    "scene/tex/TX_church_tower_Transparent_M.webp": {
+      "sha256": "99cc7f8198cd114a86532ea2f8843b9a8140dfa2541b17fcd6e706a7543c1144",
+      "bytes": 26642
+    },
+    "scene/tex/TX_church_tower_Transparent_N.webp": {
+      "sha256": "038176d947b0928edde23fb9976fe0d08ec6a96fcce1d77813d6cf07646eb276",
+      "bytes": 25652
+    },
+    "scene/tex/TX_church_tower_common_D.webp": {
+      "sha256": "ae3251c5d831bb796a96eff6e761c4dcf6f814fb67bd3b46e4d5d2e0aee8664a",
+      "bytes": 195100
+    },
+    "scene/tex/TX_church_tower_common_E.webp": {
+      "sha256": "1509313fe915b6696feff7591c59f71f041a9dc06db0b1572d1aece7f2f95a12",
+      "bytes": 12394
+    },
+    "scene/tex/TX_icewild_A.webp": {
+      "sha256": "69eac5ef1323515d8f98774c5ceec60481bb12ec4ffd5df273a44f865bfc4dee",
+      "bytes": 1501308
+    },
+    "scene/tex/TX_icewild_E.webp": {
+      "sha256": "4aa1722a3a3622bd3da5e7c65172f62aa729a47b307db49a511a78757220b90b",
+      "bytes": 382714
+    },
+    "scene/tex/TX_icewild_M.webp": {
+      "sha256": "3f53c58a30a414a1c7065a298549365222853842b4141c0b805aeb863e859cd8",
+      "bytes": 290272
+    },
+    "scene/tex/TX_icewild_N.webp": {
+      "sha256": "f0e6ebdd95485e488138b4db7411bcf2faa49ad8c1a03708c1a09565b0d22fad",
+      "bytes": 740756
+    },
+    "scene/tex/TX_icewild_common_E.webp": {
+      "sha256": "2b7c14a2402936ec367a6673574c3f75f2514bc33e1ab81ea0cdf312a25d35ac",
+      "bytes": 91446
+    },
+    "scene/tex/TX_icewild_common_M.webp": {
+      "sha256": "d69764bd7153a6c681cd53f8dc8cfc17a4950a395ec4ca5efbedcc7289fc7156",
+      "bytes": 57202
+    },
+    "scene/tex/TX_wild_common_A.webp": {
+      "sha256": "d5fd1e9e95c04a3330a535f1f954b7037b5d6fa291b241b1a9486dd4be7296c8",
+      "bytes": 219938
+    }
+  }
+}

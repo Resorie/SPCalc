@@ -1,0 +1,304 @@
+{
+  "schema": 1,
+  "id": "act3autochess-v3_1",
+  "revision": 1,
+  "label": "规程 · 序列Ⅰ V3.1",
+  "captured": "2026-11-16",
+  "dataSchema": "stronghold-data-v1",
+  "engine": {
+    "id": "stronghold-55f528e",
+    "api": 1,
+    "label": "Stronghold-Protocol 0.4.0",
+    "upstream": "55f528e9fc4872388360ee85e13eca8594856204"
+  },
+  "iconSet": "act3autochess-v3_1",
+  "sources": [
+    "https://ak.hypergryph.com/news/0787.html",
+    "https://prts.wiki/w/卫戍协议·规程/PRTS盟约记录",
+    "https://github.com/sganggs/Stronghold-Protocol/tree/55f528e9fc4872388360ee85e13eca8594856204/data/versions/act3autochess-v3_1"
+  ],
+  "files": {
+    "backups": {
+      "path": "backups.json",
+      "sha256": "91e5f5f0f2961343d2f242be3eb8bc5d4d89db638ea68fc0a3743b05227d6897"
+    },
+    "bands": {
+      "path": "bands.json",
+      "sha256": "b2af8449c42d6245c6688a2034ca0f2df5287595834231d6f60a83ee59107a8c"
+    },
+    "bonds": {
+      "path": "bonds.json",
+      "sha256": "c19d17f7fd663aa3e6e30e4a415a91025aee061166e21c32aa2af337cada5cc8"
+    },
+    "bosses": {
+      "path": "bosses.json",
+      "sha256": "a7ba5b69bf6bb5a3b2a5a3a0fd86c7a7f7a21f99cd554d712d37ef4e583a46fe"
+    },
+    "chess": {
+      "path": "chess.json",
+      "sha256": "b117255551a83dc929fd185ae54a7179bebaef938d48e03d1e5b339d8c7d4cc1"
+    },
+    "choices": {
+      "path": "choices.json",
+      "sha256": "beea74cf748ae1d404aaf31e603aac4a26f368d9017e1bc508641b8cc2c02059"
+    },
+    "config": {
+      "path": "config.json",
+      "sha256": "c5a5e7e616ea1cb29db1aadde96a0224144c9f7a5e57d99847cd9d131c0e195a"
+    },
+    "effects": {
+      "path": "effects.json",
+      "sha256": "676b6a45dd961e61f47922ac96601d4cfdd044832574dacc20b37f77b00895ca"
+    },
+    "enemies": {
+      "path": "enemies.json",
+      "sha256": "7aa99a6fb4cc324b86860d25c7763bda2cfd34900056e9ec0534d001062f2cc5"
+    },
+    "factions": {
+      "path": "factions.json",
+      "sha256": "12e3ca617906409c6b9d04a77d9e0c8a242f54e14e8dd70750a9c396e05aa102"
+    },
+    "garrisons": {
+      "path": "garrisons.json",
+      "sha256": "77fae76eb5eb13d011fb1c9c2a7454f80e5b6b367a5cafdb57a32b40fb6b3ce2"
+    },
+    "items": {
+      "path": "items.json",
+      "sha256": "b89d45720c302f61e5b06466fa5c7b5789ca2554c236c6da4f921ed88cda42d8"
+    },
+    "stages": {
+      "path": "stages.json",
+      "sha256": "ab0b1ee503fa9bb236087ac7f6033dbff1165ffc9a8285a0a7052292e974b534"
+    },
+    "tokens": {
+      "path": "tokens.json",
+      "sha256": "a6d1189a367075545d3023f92ecaae6a40f837b341e672f7b319d8d6e2add432"
+    },
+    "tuning": {
+      "path": "tuning.json",
+      "sha256": "931253292844e51327e5273197dc03fb425bc966b65cb496f1f55f26832da3fd"
+    },
+    "waves": {
+      "path": "waves.json",
+      "sha256": "758206947ff79ef90248815e1c3e2c6176239f78b5c73c870b8eaed44c8d73bf"
+    },
+    "collab": {
+      "path": "collab.json",
+      "sha256": "da9f458830412ed2e70781a9b4aba0b905db483d48f14e8ab813f576437ad40f"
+    }
+  },
+  "defaults": {
+    "target": {
+      "def": 800,
+      "res": 30,
+      "duration": 60,
+      "count": 1,
+      "distance": 1,
+      "seed": 1,
+      "rank": "BOSS",
+      "weight": 9,
+      "motion": "WALK"
+    },
+    "config": {
+      "chessId": "chess_char_4_02_b",
+      "skillIndex": 2,
+      "potential": 6,
+      "cultivate": 3,
+      "items": [],
+      "bonds": []
+    },
+    "diyCharId": "char_1015_aglna2",
+    "targetReference": {
+      "label": "规程等级 20 · 假想敌：茧（常态面板）",
+      "enemyKey": "enemy_9035_acspider",
+      "fields": [
+        "def",
+        "res",
+        "weight",
+        "rank",
+        "motion"
+      ],
+      "source": "https://prts.wiki/w/假想敌：茧",
+      "note": "采用常态防御、法抗与重量作为静止靶的参考面板。"
+    },
+    "bossMode": {
+      "id": "mode_single_20",
+      "round": 14
+    },
+    "team": {
+      "name": "阵容",
+      "members": [
+        {
+          "uid": 1,
+          "row": 3,
+          "col": 5,
+          "dir": "RIGHT",
+          "config": {
+            "chessId": "chess_char_6_02_b",
+            "skillIndex": 2,
+            "potential": 6,
+            "cultivate": 3,
+            "items": [],
+            "bonds": []
+          }
+        },
+        {
+          "uid": 2,
+          "row": 4,
+          "col": 8,
+          "dir": "RIGHT",
+          "config": {
+            "chessId": "chess_char_6_13_b",
+            "skillIndex": 2,
+            "potential": 6,
+            "cultivate": 3,
+            "items": [],
+            "bonds": []
+          }
+        },
+        {
+          "uid": 3,
+          "row": 4,
+          "col": 5,
+          "dir": "RIGHT",
+          "config": {
+            "chessId": "chess_char_6_diy1_b",
+            "skillIndex": 2,
+            "potential": 6,
+            "cultivate": 3,
+            "items": [],
+            "bonds": [],
+            "diy": {
+              "charId": "char_1020_reed2",
+              "uniEquipId": null
+            }
+          }
+        }
+      ],
+      "bonds": [],
+      "assumptions": {
+        "raid": false
+      }
+    },
+    "teamScene": {
+      "stageId": "act3autochess_m02",
+      "targetRow": 3,
+      "targetCol": 10,
+      "targetShape": "boss"
+    },
+    "configs": [
+      {
+        "chessId": "chess_char_4_02_b",
+        "skillIndex": 2,
+        "potential": 6,
+        "cultivate": 3,
+        "items": [],
+        "bonds": [
+          {
+            "id": "lethaniaShip",
+            "count": 3,
+            "layers": 500
+          },
+          {
+            "id": "arcaneShip",
+            "count": 3,
+            "layers": 300
+          },
+          {
+            "id": "preciShip",
+            "count": 3,
+            "layers": 400
+          },
+          {
+            "id": "skillfulShip",
+            "count": 2,
+            "layers": 150
+          },
+          {
+            "id": "visiShip",
+            "count": 2,
+            "layers": 150
+          }
+        ]
+      },
+      {
+        "chessId": "chess_char_4_02_b",
+        "skillIndex": 1,
+        "potential": 6,
+        "cultivate": 3,
+        "items": [],
+        "bonds": [
+          {
+            "id": "lethaniaShip",
+            "count": 3,
+            "layers": 500
+          },
+          {
+            "id": "arcaneShip",
+            "count": 3,
+            "layers": 300
+          },
+          {
+            "id": "preciShip",
+            "count": 3,
+            "layers": 400
+          },
+          {
+            "id": "skillfulShip",
+            "count": 2,
+            "layers": 150
+          },
+          {
+            "id": "visiShip",
+            "count": 2,
+            "layers": 150
+          }
+        ]
+      },
+      {
+        "chessId": "chess_char_6_08_b",
+        "skillIndex": 2,
+        "potential": 6,
+        "cultivate": 3,
+        "items": [],
+        "bonds": [
+          {
+            "id": "lethaniaShip",
+            "count": 3,
+            "layers": 500
+          },
+          {
+            "id": "arcaneShip",
+            "count": 3,
+            "layers": 300
+          },
+          {
+            "id": "preciShip",
+            "count": 3,
+            "layers": 400
+          },
+          {
+            "id": "skillfulShip",
+            "count": 2,
+            "layers": 150
+          },
+          {
+            "id": "visiShip",
+            "count": 2,
+            "layers": 150
+          }
+        ]
+      }
+    ]
+  },
+  "boardSet": "act3autochess-v3_1",
+  "diyExcludedNames": {
+    "char_456_ash": "灰烬",
+    "char_1029_yato2": "麒麟R夜刀",
+    "char_1048_orchd2": "焰狐龙梓兰",
+    "char_4123_ela": "艾拉",
+    "char_4141_marcil": "玛露西尔",
+    "char_4182_oblvns": "丰川祥子",
+    "char_4217_makoto": "结城理"
+  }
+}

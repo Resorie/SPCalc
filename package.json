@@ -1,0 +1,16 @@
+{
+  "name": "spcalc",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check:data": "node scripts/import-ruleset.mjs data/act3autochess-v3_1 data/act3autochess-v3_1/manifest.json --check"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

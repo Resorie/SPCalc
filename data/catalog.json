@@ -1,0 +1,20 @@
+{
+  "default": "act3autochess-v3_1",
+  "versions": [
+    {
+      "id": "act2autochess-v2_2",
+      "manifest": "./act2autochess-v2_2/manifest.json",
+      "teamVersion": "act2autochess-v2_2-team1"
+    },
+    {
+      "id": "act2autochess-v2_2-team1",
+      "manifest": "act2autochess-v2_2-team1/manifest.json"
+    },
+    {
+      "id": "act3autochess-v3_1",
+      "manifest": "act3autochess-v3_1/manifest.json",
+      "teamVersion": "act3autochess-v3_1"
+    }
+  ],
+  "teamDefault": "act3autochess-v3_1"
+}

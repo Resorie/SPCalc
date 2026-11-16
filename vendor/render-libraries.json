@@ -1,0 +1,28 @@
+{
+  "packages": {
+    "pixi.js": "7.4.2",
+    "three": "0.186.1"
+  },
+  "files": [
+    {
+      "path": "vendor/pixi/pixi.min.js",
+      "sha256": "9ddba9cd78bc8610a1d445ec939393888be83925c78e40d66d9a17e98450228d"
+    },
+    {
+      "path": "vendor/pixi/LICENSE",
+      "sha256": "5ce7447bc57f7349ffc48338782fbcabe613696e00712b20d66bc58e780f9473"
+    },
+    {
+      "path": "vendor/three/three.module.js",
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+    },
+    {
+      "path": "vendor/three/three.core.js",
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+    },
+    {
+      "path": "vendor/three/LICENSE",
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    }
+  ]
+}

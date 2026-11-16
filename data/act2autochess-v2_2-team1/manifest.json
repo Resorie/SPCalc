@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "id": "act2autochess-v2_2-team1",
+  "revision": 1,
+  "label": "盟约 · 下半期 V2.2 · 团队靶场",
+  "captured": "2026-10-29",
+  "dataSchema": "stronghold-data-v1",
+  "engine": {
+    "id": "stronghold-f07b896",
+    "api": 1,
+    "label": "Stronghold-Protocol 0.3.3",
+    "upstream": "f07b8965061bbc311ad7aa815879b09264a1e47d"
+  },
+  "sources": [
+    "https://github.com/sganggs/Stronghold-Protocol/tree/f07b8965061bbc311ad7aa815879b09264a1e47d",
+    "https://prts.wiki/w/卫戍协议",
+    "https://prts.wiki/w/予愿安洁莉娜"
+  ],
+  "files": {
+    "backups": {
+      "path": "backups.json",
+      "sha256": "3df06b7d5bfacba9d3d5a7afafb98adb799a32b0fadf7dd1ddea435144195854"
+    },
+    "bands": {
+      "path": "bands.json",
+      "sha256": "8f18abc99eb50639a1f2fc679a84015d6d8cc8aa3ff7c7d22ad6db5dc347053b"
+    },
+    "bonds": {
+      "path": "bonds.json",
+      "sha256": "53a22f4724771b6ff40041635e907c0af39790731f661b0439fc593f5a91c94c"
+    },
+    "bosses": {
+      "path": "bosses.json",
+      "sha256": "427c12bcdb23c449ab2d423129b1d339ecd76cc7c70a181a3d2b5a4af88b96a9"
+    },
+    "chess": {
+      "path": "chess.json",
+      "sha256": "0b88903c065fc8974158bba2298147844826820d862637990494dc2635cba064"
+    },
+    "choices": {
+      "path": "choices.json",
+      "sha256": "ed4572cac6905a56a14faebfd1f69ab4e2e5710573a27e486bd8e9be4f2b7100"
+    },
+    "config": {
+      "path": "config.json",
+      "sha256": "3a51093bbbec4578e1d4161e73b90647093fd7a3c7395e4dfc5be1fb864e3888"
+    },
+    "effects": {
+      "path": "effects.json",
+      "sha256": "96e28be614f04da6d58c9e95706d742863c756b94dcad498e808c3410ba620e3"
+    },
+    "enemies": {
+      "path": "enemies.json",
+      "sha256": "043fdad2dd0dc210f285355d6a4db70f5466c898c6bbcd0d56ee9b219f6e1f45"
+    },
+    "garrisons": {
+      "path": "garrisons.json",
+      "sha256": "f5b1f5558a263c95abcf36411c31e781efd3ebb1bebdced99ad1f242c2a960e3"
+    },
+    "items": {
+      "path": "items.json",
+      "sha256": "6122a3cd75531f551a03082f000426a2d6b8028788fbd1abbaea5286592fbba4"
+    },
+    "tokens": {
+      "path": "tokens.json",
+      "sha256": "9e3501357b07d754711fcfd8506286efa32b7774d98e419fdcff48c1f6729b39"
+    },
+    "stages": {
+      "path": "stages.json",
+      "sha256": "06d528bf79577d2a3f5842d5d1f0e959a767ac174a0ce48474dc6cb741ea0dbd"
+    }
+  },
+  "defaults": {
+    "target": {
+      "def": 1100,
+      "res": 60,
+      "duration": 60,
+      "count": 1,
+      "distance": 1,
+      "seed": 1,
+      "rank": "BOSS",
+      "weight": 8,
+      "motion": "WALK"
+    },
+    "config": {
+      "chessId": "chess_char_5_19_b",
+      "skillIndex": 2,
+      "potential": 6,
+      "cultivate": 3,
+      "items": [],
+      "bonds": []
+    },
+    "comparisonItems": [
+      "chess_item_1_01_e_b"
+    ],
+    "diyCharId": "char_1015_aglna2",
+    "targetReference": {
+      "label": "终极模拟 · 假想敌：铳（常态面板）",
+      "enemyKey": "enemy_9017_achunt",
+      "fields": [
+        "def",
+        "res",
+        "weight",
+        "rank",
+        "motion"
+      ],
+      "source": "https://prts.wiki/w/假想敌：铳",
+      "note": "取常态防御、法抗与重量作参考，未对战斗阶段加权；终极难度的生命池变化不影响这组防御与法抗。"
+    },
+    "stageId": "act1autochess_m02",
+    "team": {
+      "name": "阵容",
+      "members": [
+        {
+          "uid": 1,
+          "row": 4,
+          "col": 6,
+          "dir": "RIGHT",
+          "config": {
+            "chessId": "chess_char_5_03_b",
+            "skillIndex": 2,
+            "potential": 6,
+            "cultivate": 3,
+            "items": [],
+            "bonds": []
+          }
+        },
+        {
+          "uid": 2,
+          "row": 5,
+          "col": 6,
+          "dir": "RIGHT",
+          "config": {
+            "chessId": "chess_char_6_08_b",
+            "skillIndex": 2,
+            "potential": 6,
+            "cultivate": 3,
+            "items": [],
+            "bonds": []
+          }
+        },
+        {
+          "uid": 3,
+          "row": 4,
+          "col": 7,
+          "dir": "RIGHT",
+          "config": {
+            "chessId": "chess_char_5_07_b",
+            "skillIndex": 2,
+            "potential": 6,
+            "cultivate": 3,
+            "items": [],
+            "bonds": []
+          }
+        }
+      ],
+      "bonds": [],
+      "assumptions": {
+        "arcane": false,
+        "raid": false
+      }
+    },
+    "teamScene": {
+      "stageId": "act1autochess_m02",
+      "targetRow": 3,
+      "targetCol": 10,
+      "targetShape": "boss"
+    }
+  }
+}
