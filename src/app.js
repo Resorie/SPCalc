@@ -3,7 +3,8 @@ import { loadRuleset, loadIcons } from './rulesets.js';
 import { defaultState as makeState, restoreState } from './config-state.js';
 import { createCalculator } from './engine.js';
 import { createImagePicker } from './image-picker.js';
-import { diyOperatorOptions, moduleField } from './operator-editor.js';
+import { closureBlockBonusField, diyOperatorOptions, moduleField } from './operator-editor.js';
+import { MAX_TARGET_HP, resetTargetPanel } from './trial-targets.js';
 const planName = i => 'ABCDE'[i];
 const planColor = i => ['var(--blue)','var(--b)','#218273','#9460b5','#be425c'][i];
 const runner = createCalculationRunner();
@@ -79,9 +80,11 @@ const imagePicker=createImagePicker(fieldIcon);
 const imageSelect=(...args)=>imagePicker.field(...args);
 function renderTarget() {
   const t = state.target;
-  const ref = VERSION.defaults.targetReference;
-  $('#target-reference').innerHTML = ref ? `默认参考：<a href="${escape(ref.source)}" target="_blank" rel="noreferrer">${escape(ref.label)} ↗</a> · 防御 ${VERSION.defaults.target.def} / 法抗 ${VERSION.defaults.target.res} / 重量 ${VERSION.defaults.target.weight}。仅取静态面板，未模拟 Boss 机制。` : '';
-  $('#target-fields').innerHTML = numeric('防御力','def',t.def,0,10000)+numeric('法术抗性','res',t.res,0,100)+numeric('测试时长 / 秒','duration',t.duration,1,300)+numeric('目标数量','count',t.count,1,8)+select('前方距离 / 格','distance',[1,2,3,4,5].map(n=>[n,n]),t.distance)+select('敌人等级','rank',[['NORMAL','普通敌人'],['BOSS','领袖']],t.rank)+numeric('重量','weight',t.weight,0,10)+select('目标类型','motion',[['WALK','地面'],['FLY','空中']],t.motion)+numeric('随机种子','seed',t.seed,1,4294967295);
+  const ref = VERSION.defaults.bossPresetSource ?? VERSION.defaults.targetReference;
+  $('#target-reference').innerHTML = ref ? `<a href="${escape(ref.source)}" target="_blank" rel="noreferrer">${escape(ref.label)} ↗</a>` : '';
+  $('#target-preset').innerHTML = calculator.bossPresets.length
+    ? select('Boss 预设','bossId',[['','自定义面板'],...calculator.bossPresets.map(p=>[p.id,p.name])],t.bossId??'') : '';
+  $('#target-fields').innerHTML = numeric('生命值 / 每个靶','hp',t.hp,1,MAX_TARGET_HP,'inputmode="numeric"')+numeric('防御力','def',t.def,0,10000)+numeric('法术抗性','res',t.res,0,100)+numeric('测试时长 / 秒','duration',t.duration,1,300)+numeric('目标数量','count',t.count,1,8)+select('前方距离 / 格','distance',[1,2,3,4,5].map(n=>[n,n]),t.distance)+select('敌人等级','rank',[['NORMAL','普通敌人'],['BOSS','领袖']],t.rank)+numeric('重量','weight',t.weight,0,10)+select('目标类型','motion',[['WALK','地面'],['FLY','空中']],t.motion)+numeric('随机种子','seed',t.seed,1,4294967295);
 }
 function operatorOptions() {
   return catalog.presets.map(c=>[c.chessId,`${['','Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ'][c.tier]}阶 · ${c.name}`]);
@@ -96,7 +99,9 @@ function renderConfig() {
   const lock = catalog.lock(c);
   const skills = (rec.skills?.length ? rec.skills : [rec.skill].filter(Boolean)).filter(s=>!lock || s.index === lock.skillIndex);
   const selectedSkill = skills.find(s=>s.index===Number(c.skillIndex)) || rec.skill;
-  const tag = rec.bonds.map(id=>`<span class="badge">${iconMarkup('bonds',id,data.bonds[id]?.name)}${escape(data.bonds[id]?.name || id)}</span>`).join('');
+  const ownBonds = calculator.ownBonds(rec,c.items);
+  const tag = ownBonds.map(id=>`<span class="badge">${iconMarkup('bonds',id,data.bonds[id]?.name)}${escape(data.bonds[id]?.name || id)}${rec.bonds.includes(id)?'':' · 转职'}</span>`).join('');
+  const inactiveConversions = ownBonds.filter(id=>!rec.bonds.includes(id)&&!c.bonds.some(b=>b.id===id));
   $('#config-panel').innerHTML = `
     <div class="field-row">${select('干员来源','mode',[['preset','预置干员'],['diy','自选干员']],c.diy?'diy':'preset')}${c.diy?select('自选等阶','diyTier',[[5,'Ⅴ 阶'],[6,'Ⅵ 阶']],rec.tier):'<div class="field-hint">保留活动专属特质</div>'}</div>
     ${c.diy?imageSelect('自选干员','diyOperator',diyOperatorOptions(catalog,rec.tier),c.diy.charId):imageSelect('干员','operator',operatorOptions(),base)}
@@ -112,11 +117,13 @@ function renderConfig() {
     <div class="field-row">${numeric('攻击力加成 / %','ext_atkPct',c.external?.atkPct??0,0,100000)}${numeric('攻击速度 / 点','ext_aspd',c.external?.aspd??0,0,100000)}</div>
     <details><summary>攻击力其他乘区</summary><div class="field-row">${numeric('基础固定加攻','ext_atkFlat',c.external?.atkFlat??0,0,100000)}${numeric('后加固定攻击','ext_atkFinal',c.external?.atkFinal??0,0,100000)}</div>${numeric('独立倍率 / 倍','ext_atkMul',c.external?.atkMul??1,1,100)}</details>
     <p class="field-note">百分比加攻与同类增益相加；攻速填点数。基础固定值先参与百分比加成，后加固定值随后加入，最后乘独立倍率及培养系数。只手动指定加成，不模拟队友、站位与触发条件。</p>
+    ${closureBlockBonusField(c,rec)}
     <div class="config-subheading"><h3>携带装备</h3><span class="subtle">最多 2 件战斗装备</span></div>
     ${imageSelect('装备一','item0',equipment,c.items[0]||'')}<p class="item-desc">${escape(data.items[c.items[0]]?.desc || '选择装备，查看效果。')}</p>
     ${imageSelect('装备二','item1',equipment,c.items[1]||'')}<p class="item-desc">${escape(data.items[c.items[1]]?.desc || '可与另一方案只更换这一栏，比较边际收益。')}</p>
     <p class="field-note">使用后销毁的道具不占战斗装备栏。盟约层数、晋升等结果请直接填写；此处不模拟休整期。</p>
     <div class="config-subheading"><h3>已激活盟约</h3><span class="subtle">手动指定战斗条件</span></div>
+    ${inactiveConversions.length?`<p class="field-note">「${inactiveConversions.map(id=>escape(data.bonds[id]?.name||id)).join('、')}」已转职，尚未激活。请添加盟约并填写人数和起始层数。</p>`:''}
     <div id="bond-list">${c.bonds.map((b,i)=>bondEditor(b,i)).join('')}</div>
     <button id="add-bond" class="bond-add" type="button">＋ 添加盟约</button>
     <p class="field-note">未添加的盟约视为未激活。人数用于选择档位，不生成队友。单人灵巧按相邻队友覆盖。奥术和突袭的简化见对应说明。战斗中特质产生的层数变化会继续生效。</p>`;
@@ -149,8 +156,12 @@ function bondEditor(b, i) {
 }
 
 $('#default-target').addEventListener('click', () => {
-  const fields = VERSION.defaults.targetReference?.fields || ['def','res','weight','rank','motion'];
-  for (const key of fields) state.target[key] = VERSION.defaults.target[key];
+  resetTargetPanel(state.target,VERSION);
+  renderTarget(); markChanged();
+});
+$('#target-preset').addEventListener('change', event => {
+  const preset = calculator.bossPresets.find(p=>p.id===event.target.value);
+  Object.assign(state.target,preset?.target ?? {bossId:null});
   renderTarget(); markChanged();
 });
 $('#target-fields').addEventListener('input', event => {
@@ -187,6 +198,8 @@ $('#config-panel').addEventListener('change', event => {
     c.diy.uniEquipId=el.value==='none'?null:el.value;
   } else if(name==='moduleId') {
     c.moduleId=el.value;
+  } else if(name==='closureBlockBonus') {
+    c.closureBlockBonus=el.value;
   } else if(name==='operator'||name==='elite') {
     const previous=catalog.resolve(c);
     const base=data.chess[name==='operator'?el.value:previous.baseId];
@@ -210,7 +223,8 @@ $('#config-panel').addEventListener('click', event => {
   if(remove) {c.bonds.splice(Number(remove.dataset.remove),1);markChanged();renderConfig();}
   if(event.target.closest('#add-bond')) {
     const rec=catalog.resolve(c);
-    const id=[...rec.bonds,...Object.keys(data.bonds)].find(id=>!c.bonds.some(b=>b.id===id));
+    const converted=calculator.ownBonds(rec,c.items).filter(id=>!rec.bonds.includes(id));
+    const id=[...converted,...rec.bonds,...Object.keys(data.bonds)].find(id=>!c.bonds.some(b=>b.id===id));
     if(id) {c.bonds.push({id,count:data.bonds[id].thresholds[0],layers:20});markChanged();renderConfig();}
   }
 });
@@ -251,13 +265,16 @@ function skillTimeline(r,i) {
 const typeNames={phys:'物理伤害',arts:'法术伤害',true:'真实伤害',elemental:'元素伤害',element:'元素伤害',hpLoss:'生命流失',other:'其他伤害'};
 function renderResults(rs) {
   const a=rs[0];
-  const summary = rs.map((r,i)=>`<article class="summary-card" style="border-top-color:${planColor(i)}"><div class="summary-label"><strong>方案 ${planName(i)}</strong><span>${iconMarkup('operators',catalog.resolve(r.config).charId,configLabel(r.config))}${escape(configLabel(r.config))}</span></div><div class="metric-label">累计伤害</div><div class="metric">${number(r.total)}</div><div class="summary-secondary"><span>平均 DPS <strong>${number(r.dps,1)}</strong></span><span>技能 ${r.activations} 次</span></div><div class="summary-secondary skill-metric"><span>技能期间 DPS <strong>${r.skillWindow.dps===null?'—':number(r.skillWindow.dps,1)}</strong></span><span>生效 ${number(r.skillWindow.duration,2)} 秒</span></div><p class="current-config">${escape(configDetails(r.config))}</p></article>`).join('');
+  const summary = rs.map((r,i)=>`<article class="summary-card" style="border-top-color:${planColor(i)}"><div class="summary-label"><strong>方案 ${planName(i)}</strong><span>${iconMarkup('operators',catalog.resolve(r.config).charId,configLabel(r.config))}${escape(configLabel(r.config))}</span></div><div class="metric-label">累计伤害</div><div class="metric">${number(r.total)}</div><div class="summary-secondary"><span>平均 DPS <strong>${number(r.dps,1)}</strong></span><span>技能 ${r.activations} 次</span></div><div class="summary-secondary skill-metric"><span>技能期间 DPS <strong>${r.skillWindow.dps===null?'—':number(r.skillWindow.dps,1)}</strong></span><span>生效 ${number(r.skillWindow.duration,2)} 秒</span></div>${r.targetDefeatedAt!==null?`<p class="current-config">击倒全部靶子 · ${number(r.targetDefeatedAt,2)} 秒</p>`:''}<p class="current-config">${escape(configDetails(r.config))}</p></article>`).join('');
   const types=[...new Set(rs.flatMap(r=>Object.keys(r.damageTypes)))];
   const row=(label,...values)=>`<tr><td>${escape(label)}</td>${values.map(v=>`<td>${v}</td>`).join('')}</tr>`;
+  const swiftRow=rs.some(r=>r.swiftRefunds)?row('迅捷返还技力',...rs.map(r=>r.swiftRefunds
+    ? `${r.swiftRefunds.reduce((sum,event)=>sum+event.amount,0).toLocaleString('zh-CN',{maximumFractionDigits:2})} 点 · ${r.swiftRefunds.length} 次`
+    : '未激活')):'';
   const warnings=[...new Set(rs.flatMap((r,i)=>r.warnings.map(w=>`方案 ${planName(i)}：${w}`)))];
   $('#results').innerHTML=`<div class="summary-pair">${summary}</div><p class="comparison-note">${rs.length===1?'当前只有一个方案，可点击＋复制并比较。':rs.slice(1).map((r,i)=>a.total?`方案 ${planName(i+1)} 相对 A：${r.total>=a.total?'+':''}${number((r.total/a.total-1)*100,1)}%`:`方案 ${planName(i+1)}：A 伤害为零，不计算提升比例`).join('；')}</p>
     <div class="chart-panel"><div class="chart-head"><h3>累计伤害</h3><div class="legend">${rs.map((r,i)=>`<span><i class="small-dot" style="background:${planColor(i)}"></i>方案 ${planName(i)}</span>`).join('')}</div></div>${chartHtml(rs)}<div style="margin-top:16px"><h3 style="font-size:12px">技能持续时间</h3>${rs.map((r,i)=>skillTimeline(r,i)).join('')}</div><p class="chart-caption">横轴为部署后的游戏内时间。色带表示技能生效区间，瞬发技能只标记启动点。多目标伤害合并统计。技能期间 DPS = 生效区间内实际扣血 ÷ 生效总时长；多次释放合并，末次截到测试结束。包含同期普攻、装备和召唤物伤害，不计结束后才命中的伤害。瞬发或未开启技能显示“—”。</p></div>
-    <div class="detail-panel"><h3>伤害拆分</h3><table class="stats-table"><thead><tr><th>指标</th>${rs.map((r,i)=>`<th>方案 ${planName(i)}</th>`).join('')}</tr></thead><tbody>${row('首次造成伤害',...rs.map(r=>r.firstHit===null?'—':`${number(r.firstHit,2)} 秒`))}${types.map(t=>row(typeNames[t]||t,...rs.map(r=>number(r.damageTypes[t]||0)))).join('')}${row('技能期间伤害',...rs.map(r=>r.skillWindow.dps===null?'—':number(r.skillWindow.damage)))}${row('技能生效总时长',...rs.map(r=>`${number(r.skillWindow.duration,2)} 秒`))}${row('部署时攻击力',...rs.map(r=>number(r.opening.atk,1)))}${row('部署时攻击间隔',...rs.map(r=>`${number(r.opening.interval,3)} 秒`))}</tbody></table><p class="chart-caption">部署时面板用于核对初始状态，可能随后被技能、特质或盟约改变。按受击者实际扣血统计，包含自动召唤物。</p></div>
+    <div class="detail-panel"><h3>伤害拆分</h3><table class="stats-table"><thead><tr><th>指标</th>${rs.map((r,i)=>`<th>方案 ${planName(i)}</th>`).join('')}</tr></thead><tbody>${row('首次造成伤害',...rs.map(r=>r.firstHit===null?'—':`${number(r.firstHit,2)} 秒`))}${types.map(t=>row(typeNames[t]||t,...rs.map(r=>number(r.damageTypes[t]||0)))).join('')}${row('技能期间伤害',...rs.map(r=>r.skillWindow.dps===null?'—':number(r.skillWindow.damage)))}${swiftRow}${row('技能生效总时长',...rs.map(r=>`${number(r.skillWindow.duration,2)} 秒`))}${row('部署时攻击力',...rs.map(r=>number(r.opening.atk,1)))}${row('部署时攻击间隔',...rs.map(r=>`${number(r.opening.interval,3)} 秒`))}</tbody></table><p class="chart-caption">部署时面板用于核对初始状态，可能随后被技能、特质或盟约改变。按受击者实际扣血统计，包含自动召唤物。</p></div>
     <div class="detail-panel"><h3>输出归属</h3><table class="stats-table"><thead><tr><th>方案 / 干员</th><th>本体及归属伤害</th><th>召唤物</th><th>合计</th></tr></thead><tbody>${rs.flatMap((r,i)=>r.damageByOperator.map(o=>`<tr><td>${planName(i)} / ${escape(o.name)}</td><td>${number(o.direct)}</td><td>${number(o.summons)}</td><td>${number(o.damage)}</td></tr>`)).join('')}${rs.some(r=>r.unattributedDamage)?`<tr><td>未归属伤害（按方案顺序）</td><td colspan="3">${rs.map(r=>number(r.unattributedDamage)).join(' / ')}</td></tr>`:''}</tbody></table><p class="chart-caption">按干员实例归属，召唤物沿所属关系合并；队友增益不重复折算为辅助者伤害。无法确定来源的伤害单列。</p></div>
     ${warnings.length?`<div class="detail-panel"><h3>本次计算的限制</h3><ul class="warning-list">${warnings.map(w=>`<li>${escape(w)}</li>`).join('')}</ul></div>`:''}
     <div class="detail-panel"><details><summary>查看前 60 条伤害记录</summary><div class="logs-scroll"><table class="stats-table"><thead><tr><th>时间</th><th>方案</th><th>来源</th><th>类型</th><th>伤害</th></tr></thead><tbody>${rs.flatMap((r,i)=>r.hits.slice(0,60).map(h=>({...h,plan:planName(i)}))).sort((x,y)=>x.t-y.t).slice(0,60).map(h=>`<tr><td>${number(h.t,2)}s</td><td>${h.plan}</td><td>${escape(h.source)}</td><td>${escape(typeNames[h.type]||h.type)}</td><td>${number(h.amount,1)}</td></tr>`).join('')}</tbody></table></div></details><div class="export-row"><button id="export-csv" class="text-button">下载逐秒 CSV</button><button id="export-json" class="text-button">下载配置与结果 JSON</button></div></div>`;

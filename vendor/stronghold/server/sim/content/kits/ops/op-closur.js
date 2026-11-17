@@ -215,6 +215,9 @@ export default {
       trait: {
         install() {},
         dmgMul(battle, unit, target) {
+          const override = battle.opts.readClosureBlockBonus?.(unit);
+          if (override === 'on') return scale;
+          if (override === 'off') return 1;
           const b = target && target.blockedBy;
           return b && reinfOf(battle, unit).has(b) ? scale : 1;
         },

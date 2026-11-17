@@ -1,9 +1,10 @@
 import { targetGeometry } from './stronghold-target-geometry.js';
 import { TEAM_RECT, teamBoard, teamBonds, deploymentErrors, initialRange, ownBonds } from './stronghold-team-board.js';
-import { arcaneCoverage, igniteRecoveryAssumption, stationaryTargetSkillWarning } from './stronghold-trial-assumptions.js';
+import { arcaneCoverage, chenSwordWaveAssumption, closureBlockBonusAssumption, igniteRecoveryAssumption, prepareTrialEnemy, stationaryTargetSkillWarning, trialTargetRules } from './stronghold-trial-assumptions.js';
 import { createDamageLedger } from '../damage-ledger.js';
 import { skillWindowStats } from '../skill-stats.js';
 import { rulesKey } from '../rulesets.js';
+import { MAX_TARGET_HP, targetDefeatTime } from '../trial-targets.js';
 
 export function createTeamAdapter(data,manifest,catalog,validateOperator,runtime,supplementalKits) {
   const { Battle, setData, setSimData, setGameData, isMember, absoluteRangeKeys } = runtime;
@@ -31,6 +32,8 @@ export function createTeamAdapter(data,manifest,catalog,validateOperator,runtime
   }
   function simulateTeam(team,target,scene) {
     const bonds=validateTeam(team,target,scene);
+    const hp=Number(target.hp??MAX_TARGET_HP);
+    const targetRules=trialTargetRules(data,manifest,target);
     setData(data);setSimData(data);setGameData(data);
     const {stage,canPlace,board}=teamBoard(data,scene.stageId,scene,runtime);
     const geometry=targetGeometry(scene);
@@ -40,7 +43,7 @@ export function createTeamAdapter(data,manifest,catalog,validateOperator,runtime
     const timeline=[],hits=[],samples=[],assumptions=[],damageTimes=new Map(team.members.map(m=>[`p1/${m.uid}`,new Map()]));
     const diagnostics={healing:[],bursts:[],skillStarts:[],exits:[],ammoGains:[],eventLimit:2000};
     const dummy={key:'calculator_target',name:'团队测试靶',rank:target.rank,applyWay:'MELEE',
-      stats:{maxHp:1e9,atk:0,def:Number(target.def),res:Number(target.res),moveSpeed:0,bat:2,aspd:100,rangeRadius:0,blockCnt:1,massLevel:Number(target.weight??6),lpr:0,hpRecoveryPerSec:0,elementRes:0,elementDmgRes:0,dmgType:'phys',motion:target.motion??'WALK',immunities:{},otherImmunities:[]},
+      stats:{maxHp:hp,atk:0,def:Number(target.def),res:Number(target.res),moveSpeed:0,bat:2,aspd:100,rangeRadius:0,blockCnt:1,massLevel:Number(target.weight??6),lpr:0,hpRecoveryPerSec:0,elementRes:0,elementDmgRes:0,dmgType:'phys',motion:target.motion??'WALK',immunities:{},otherImmunities:[]},
       hitArea:geometry.hitArea,notCountInTotal:true,tags:[],abilities:[],talents:{bb:{}},skills:[]};
     const arcane=supportsArcaneCoverage&&team.assumptions?.arcane&&bonds.arcaneShip?.active?{id:'arcaneShip',count:bonds.arcaneShip.count,layers:bonds.arcaneShip.layers}:null;
     if(arcane)assumptions.push(arcaneCoverage(data,arcane));
@@ -51,7 +54,9 @@ export function createTeamAdapter(data,manifest,catalog,validateOperator,runtime
       const e=c.external||{};
       battle.addBuff(u,{key:'calculator:external',duration:Infinity,refresh:'replace',mods:{atkPct:Number(e.atkPct||0)/100,atkFlat:Number(e.atkFlat||0),atkFinal:Number(e.atkFinal||0),atkMul:Number(e.atkMul??1),aspd:Number(e.aspd||0)}});
     };
-    const b=new Battle({kits:supplementalKits,data:{...data,enemies:{...data.enemies,calculator_target:dummy}},stage,rect:TEAM_RECT,
+    const b=new Battle({kits:supplementalKits,readSkillTargetHp:targetRules.readCurrentHp,
+      readClosureBlockBonus:u=>configByUid.get(u.uid)?.closureBlockBonus,
+      data:{...data,enemies:{...data.enemies,calculator_target:dummy}},stage,rect:TEAM_RECT,
       seed:Number(target.seed),kind:'boss',modeId:manifest.defaults.bossMode?.id ?? 'mode_single_abyss',round:manifest.defaults.bossMode?.round ?? 14,timeLimit:Number(target.duration)+1,autoFinish:false,recordEvents:false,
       flags:{layerGainsEnabled:true,startOpCooldown:3,dpInit:99,dpMax:99,dpPerSec:1},
       players:[{playerId:'p1',bonds,coords:'field',units:team.members.map(m=>({uid:m.uid,chessId:m.config.chessId,row:m.row,col:m.col,dir:m.dir,skillIndex:m.config.skillIndex,moduleId:records.get(m.uid).isGolden?m.config.moduleId:undefined,potential:m.config.potential,cultivate:m.config.cultivate,items:m.config.items,...(m.config.diy?{diy:{...m.config.diy,skillIndex:m.config.skillIndex}}:{})}))}],
@@ -116,7 +121,7 @@ export function createTeamAdapter(data,manifest,catalog,validateOperator,runtime
     for(let i=0;i<Number(target.count);i++){
       const pos=[scene.targetRow,scene.targetCol];
       const e=b.spawnEnemy('calculator_target',{pos,route:{motion:target.motion??'WALK',start:pos,end:[2,2],checkpoints:[]}});
-      e.profile.canAttack=false;e.atkCd=Infinity;cover(b,e);enemies.push(e);
+      prepareTrialEnemy(b,e,targetRules);cover(b,e);enemies.push(e);
     }
     b.start();
     const openings=b.allyUnits.filter(u=>u.kind==='op').map(u=>({uid:u.uid,atk:u.s.atk,interval:u.s.interval,maxHp:u.s.maxHp,row:u.tileR,col:u.tileC}));
@@ -128,13 +133,17 @@ export function createTeamAdapter(data,manifest,catalog,validateOperator,runtime
     const duration=Math.min(b.time,Number(target.duration)),out=ledger.result();
     out.damageByOperator=out.damageByOperator.map(o=>({...o,dps:o.damage/Number(target.duration),skillWindow:skillWindowStats(timeline.filter(e=>e.uid===o.uid),damageTimes.get(o.id),duration),activations:timeline.filter(e=>e.uid===o.uid&&e.kind==='skillStart').length}));
     const warnings=['地图环境沿用复刻实现，尚未逐项完成原版实测校准。靶子无控制免疫、无 Boss 技能与共享生命池。'];
+    if(targetRules.unblockable)warnings.push('参考领袖具备不可阻挡，靶子无法被干员或召唤物阻挡。');
     for (const [uid, rec] of records) {
       const warning = stationaryTargetSkillWarning(rec);
       if (warning && !warnings.includes(warning)) warnings.push(warning);
       const igniteRecovery = igniteRecoveryAssumption(rec, runtime);
-      if (igniteRecovery) {
-        assumptions.push({ ...igniteRecovery, uid });
-        if (!warnings.includes(igniteRecovery.warning)) warnings.push(igniteRecovery.warning);
+      const swordWave = chenSwordWaveAssumption(rec, targetRules.referenceHp);
+      const closureBonus = closureBlockBonusAssumption(rec, configByUid.get(uid).closureBlockBonus);
+      for (const assumption of [igniteRecovery, swordWave, closureBonus].filter(Boolean)) {
+        assumptions.push({ ...assumption, uid });
+        const text = assumption === closureBonus ? `#${uid} ${assumption.warning}` : assumption.warning;
+        if (!warnings.includes(text)) warnings.push(text);
       }
     }
     if(team.assumptions?.arcane&&!arcane)warnings.push(supportsArcaneCoverage?'奥术简化未生效：奥术盟约人数不足或未激活。':'当前版本按新版奥术的实际触发结算，旧版奥术简化未生效。');
@@ -144,7 +153,7 @@ export function createTeamAdapter(data,manifest,catalog,validateOperator,runtime
     if(enemies.some(e=>Math.abs(e.x-scene.targetCol)>.1||Math.abs(e.y-scene.targetRow)>.1))warnings.push('靶子被技能移动，实际接触范围已变化。');
     if(ledger.total===0)warnings.push('没有造成伤害，请检查靶子位置、队员朝向与技能条件。');
     if(assumptions.some(a=>a.kind==='raidApproach'||a.kind==='arcaneCoverage'))warnings.push('本方案开启了靶场简化，详见配置与导出结果中的 assumptions。');
-    return {mode:'team',version:manifest.id,rules:rulesKey(manifest),config:structuredClone(team),target:structuredClone(target),scene:structuredClone(scene),...out,dps:ledger.total/Number(target.duration),samples,timeline,hits,openings,warnings,assumptions,bonds,diagnostics,actualDuration:b.time,firstHit:hits[0]?.t??null};
+    return {mode:'team',version:manifest.id,rules:rulesKey(manifest),config:structuredClone(team),target:{...target,hp},scene:structuredClone(scene),...out,dps:ledger.total/Number(target.duration),samples,timeline,hits,openings,warnings,assumptions,bonds,diagnostics,actualDuration:b.time,firstHit:hits[0]?.t??null,targetDefeatedAt:targetDefeatTime(enemies)};
   }
   return {teamMaps, supportsArcaneCoverage,
     teamBoard: (stageId, scene) => teamBoard(data, stageId, scene, runtime),

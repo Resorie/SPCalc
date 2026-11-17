@@ -3,7 +3,8 @@ import { createCatalog } from './stronghold-catalog.js';
 import { createDamageLedger } from '../damage-ledger.js';
 import { skillWindowStats } from '../skill-stats.js';
 import { rulesKey } from '../rulesets.js';
-import { arcaneCoverage, igniteRecoveryAssumption, skillfulCoverage, stationaryTargetSkillWarning } from './stronghold-trial-assumptions.js';
+import { bossTargetPresets, MAX_TARGET_HP, targetDefeatTime } from '../trial-targets.js';
+import { arcaneCoverage, chenSwordWaveAssumption, closureBlockBonusAssumption, igniteRecoveryAssumption, prepareTrialEnemy, skillfulCoverage, stationaryTargetSkillWarning, trialTargetRules } from './stronghold-trial-assumptions.js';
 
 export function createAdapter(data, manifest, runtime) {
   const supplementalKits = {};
@@ -32,6 +33,7 @@ export function createAdapter(data, manifest, runtime) {
   const catalog = createCatalog(data, {
     ...runtime, KITTED_CHARS: [...runtime.KITTED_CHARS, ...Object.keys(supplementalKits)],
   }, manifest.diyExcludedNames);
+  const bossPresets = bossTargetPresets(manifest, data);
   if (MODULES.some(([, mod]) => typeof mod.install !== 'function') || Object.keys(KITS).length < 100) {
     throw new Error('战斗模块加载不完整，已停止计算。请刷新页面。');
   }
@@ -50,8 +52,13 @@ function validate(config, target) {
   const ext = config.external || {};
   for (const key of ['atkPct','atkFlat','atkFinal','aspd']) bounded(ext[key] ?? 0, '外部加成 '+key, 0, 100000);
   bounded(ext.atkMul ?? 1, '攻击独立倍率', 1, 100);
+  if (config.closureBlockBonus != null && !['auto', 'on', 'off'].includes(config.closureBlockBonus)) {
+    throw new Error('援军阻挡加成设置无效。');
+  }
 
   bounded(target.duration, '测试时长', 1, 300, true);
+  bounded(target.hp === undefined ? MAX_TARGET_HP : target.hp, '靶子生命值', 1, MAX_TARGET_HP, true);
+  if (target.bossId != null && !bossPresets.some(preset => preset.id === target.bossId)) throw new Error('Boss 预设不存在。');
   bounded(target.def, '防御力', 0, 10000);
   bounded(target.res, '法术抗性', 0, 100);
   bounded(target.weight ?? 6, '重量', 0, 10, true);
@@ -79,12 +86,14 @@ function validate(config, target) {
 // model selected teammate effects without creating additional units.
 function simulate(config, target) {
   const rec = validate(config, target);
+  const hp = Number(target.hp ?? MAX_TARGET_HP);
+  const targetRules = trialTargetRules(data, manifest, target);
   setData(data);
   setSimData(data);
   setGameData(data);
   const dummy = {
     key: 'calculator_target', name: '测试靶', rank: target.rank === 'BOSS' ? 'BOSS' : 'NORMAL', applyWay: 'MELEE',
-    stats: { maxHp: 1e9, atk: 0, def: Number(target.def), res: Number(target.res), moveSpeed: 0,
+    stats: { maxHp: hp, atk: 0, def: Number(target.def), res: Number(target.res), moveSpeed: 0,
       bat: 2, aspd: 100, rangeRadius: 0, blockCnt: 1, massLevel: Number(target.weight ?? 6), lpr: 0, hpRecoveryPerSec: 0,
       elementRes: 0, elementDmgRes: 0, dmgType: 'phys', motion: target.motion ?? 'WALK', immunities: {}, otherImmunities: [] },
     notCountInTotal: true, tags: [], abilities: [], talents: { bb: {} }, skills: [],
@@ -95,6 +104,7 @@ function simulate(config, target) {
   }]));
   let raidTrial = null;
   const raidDeployments = [];
+  const swiftRefunds = bonds.swiftShip ? [] : null;
   const arcane = (config.bonds || []).find(x => x.id === 'arcaneShip');
   const useArcaneCoverage = arcaneCoverage(data, arcane) != null;
   const skillful = (config.bonds || []).find(x => x.id === 'skillfulShip');
@@ -117,11 +127,13 @@ function simulate(config, target) {
       atkMul: Number(ext.atkMul ?? 1), aspd: Number(ext.aspd || 0) } });
   const b = new Battle({
     kits: supplementalKits,
+    readSkillTargetHp: targetRules.readCurrentHp,
+    readClosureBlockBonus: u => u.uid === 1 ? config.closureBlockBonus : undefined,
     data: { ...data, enemies: { ...data.enemies, calculator_target: dummy } },
     stage: { id: 'calculator', name: '固定靶场', rows, devices: [] },
     rect: { r0: 0, r1: 18, c0: 0, c1: 20 },
     seed: Number(target.seed), kind: 'normal', modeId: 'mode_multi_normal', round: 1,
-    timeLimit: Number(target.duration) + 1, autoFinish: false, recordEvents: false, devices: false,
+    timeLimit: Number(target.duration) + 1, autoFinish: false, recordEvents: swiftRefunds !== null, devices: false,
     flags: { layerGainsEnabled: true, startOpCooldown: 3, dpInit: 99, dpMax: 99, dpPerSec: 1 },
     players: [{ playerId: 'p1', bonds, units: [{
       uid: 1, chessId: rec.chessId, row: 10, col: 4, dir: 'RIGHT',
@@ -179,19 +191,28 @@ function simulate(config, target) {
     const enemy = b.spawnEnemy('calculator_target', { pos, route: { motion: target.motion ?? 'WALK', start: pos, end: [10, 0], checkpoints: [] } });
     if (!enemy) throw new Error('靶子创建失败。');
     // Stop the target's AI, without granting invulnerability or changing its mitigation.
-    enemy.profile.canAttack = false;
-    enemy.atkCd = Infinity;
+    prepareTrialEnemy(b, enemy, targetRules);
     coverArcane(b, enemy);
     targets.push(enemy);
   }
   b.start();
   const unit = b.allyUnits.find(u => u.uid === 1);
   if (!unit) throw new Error('干员未能进入靶场。');
+  const recordSwiftRefunds = t => {
+    for (const [event, kind, , , detail] of b.drainEvents()) {
+      if (event === 'fx' && kind === 'sp' && detail.src === 'bond:swiftShip' && detail.id === unit.id) {
+        swiftRefunds.push({ t, amount: detail.n });
+      }
+    }
+  };
+  if (swiftRefunds) recordSwiftRefunds(b.time);
   applyExternal(b, unit);
   const opening = { atk: unit.s.atk, interval: unit.s.interval, maxHp: unit.s.maxHp };
   const samples = [{ t: 0, damage: ledger.total, operators: ledger.snapshot() }];
   for (let i = 0; i < Number(target.duration) * 30 && !b.finished; i++) {
+    const tickTime = b.time;
     b.step();
+    if (swiftRefunds) recordSwiftRefunds(tickTime);
     if ((i + 1) % 30 === 0) samples.push({ t: (i + 1) / 30, damage: ledger.total, operators: ledger.snapshot() });
   }
   if (b.errors.length) throw new Error(`引擎报告异常，结果未展示：${JSON.stringify(b.errors[0]).slice(0,180)}`);
@@ -199,6 +220,12 @@ function simulate(config, target) {
   const assumptions = useArcaneCoverage ? [arcaneCoverage(data, arcane, b.getPlayer('p1').bonds.arcaneShip.layers)] : [];
   if (raidTrial) assumptions.push({ ...raidTrial, deployments: raidDeployments });
   const warnings = [stationaryTargetSkillWarning(rec)].filter(Boolean);
+  const swordWave = chenSwordWaveAssumption(rec, targetRules.referenceHp);
+  const closureBonus = closureBlockBonusAssumption(rec, config.closureBlockBonus);
+  for (const assumption of [swordWave, closureBonus].filter(Boolean)) {
+    assumptions.push(assumption);
+    warnings.push(assumption.warning);
+  }
   if (adjacentSkillful) {
     assumptions.push(adjacentSkillful);
     warnings.push(`靶场假设：灵巧队友全程相邻，起始攻击速度 +${adjacentSkillful.aspd}。加成随战斗中灵巧层数变化。`);
@@ -214,16 +241,17 @@ function simulate(config, target) {
   if (total === 0) warnings.push('本场没有产生伤害：请检查射程、技能触发条件，以及是否需要其他单位。');
   if (targets.some(e => !e.alive)) warnings.push('靶子被击杀或触发斩杀，后续输出不再代表持续打靶。');
   if (targets.some(e => Math.abs(e.x - (raidTrial?.target[1] ?? (4 + Number(target.distance)))) > 0.1 || Math.abs(e.y - (raidTrial?.target[0] ?? 10)) > 0.1)) warnings.push('技能或装备移动了靶子，射程与接触状态会影响结果。');
-  if (target.rank === 'BOSS') warnings.push('领袖选项仅设置敌人分类；未模拟具体首领技能、共享生命池或终局单次伤害上限。');
+  if (target.rank === 'BOSS') warnings.push('领袖靶采用参考面板与阻挡规则；未模拟具体首领技能、共享生命池或终局单次伤害上限。');
+  if (targetRules.unblockable) warnings.push('参考领袖具备不可阻挡，靶子无法被干员或召唤物阻挡。');
   if (rec.tokens?.length) warnings.push('当前只包含技能自动生成的召唤物；需要手动布置的召唤物尚未入场。');
   if ((config.bonds || []).length) warnings.push('盟约人数是外部激活条件。队友效果仅按已启用的靶场假设计入。');
-  return { version: manifest.id, rules: rulesKey(manifest), config: structuredClone(config), target: structuredClone(target), ...ledger.result(), dps: total / Number(target.duration),
-    samples, timeline, hits, opening, warnings, assumptions,
+  return { version: manifest.id, rules: rulesKey(manifest), config: structuredClone(config), target: { ...target, hp }, ...ledger.result(), dps: total / Number(target.duration),
+    samples, timeline, hits, opening, warnings, assumptions, swiftRefunds, targetDefeatedAt: targetDefeatTime(targets),
     skillWindow: skillWindowStats(timeline, damageByTime, Math.min(b.time, Number(target.duration))),
     activations: unit.skill?.activations || 0, firstHit: hits[0]?.t ?? null,
     actualDuration: b.time, kitSource: unit.kit?.skillSource || 'kit',
   };
 }
 
-  return { simulate, validate, catalog, ...createTeamAdapter(data, manifest, catalog, validate, runtime, supplementalKits) };
+  return { simulate, validate, catalog, bossPresets, ...createTeamAdapter(data, manifest, catalog, validate, runtime, supplementalKits) };
 }

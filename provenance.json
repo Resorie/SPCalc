@@ -17,12 +17,12 @@
     "data/act2autochess-v2_2/items.json": "6122a3cd75531f551a03082f000426a2d6b8028788fbd1abbaea5286592fbba4",
     "data/act2autochess-v2_2/tokens.json": "9e3501357b07d754711fcfd8506286efa32b7774d98e419fdcff48c1f6729b39"
   },
-  "integrationChange": "server/data.js replaced with an in-memory loader; server/sim and shared unchanged",
+  "integrationChange": "server/data.js uses an in-memory loader. Ch’en the Dawnstreak S3 can read a practice target's reference HP. Closure's trait multiplier supports a trial override.",
   "regulation": {
     "commit": "55f528e9fc4872388360ee85e13eca8594856204",
     "retrieved": "2026-11-16",
     "dataVersion": "act3autochess-v3_1",
     "manifest": "data/act3autochess-v3_1/manifest.json",
-    "integrationChange": "The browser loader installs the checksum-verified tables and official bounds; server/sim and shared are unchanged."
+    "integrationChange": "The browser loader installs the checksum-verified tables and official bounds. Ch’en the Dawnstreak S3 can read a practice target's reference HP. Closure's trait multiplier supports a trial override."
   }
 }

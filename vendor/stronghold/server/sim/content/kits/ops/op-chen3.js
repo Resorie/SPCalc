@@ -318,7 +318,8 @@ export default {
           for (const e of battle.foesInRadius(w.x, w.y, WAVE_HIT_RADIUS)) {
             if (w.hit.has(e) || !canTargetEnemy(unit, e, AIR)) continue;
             w.hit.add(e);
-            const amount = Math.max(ratio * e.hp, minScale * unit.s.atk);
+            const hp = battle.opts.readSkillTargetHp?.(e) ?? e.hp;
+            const amount = Math.max(ratio * hp, minScale * unit.s.atk);
             battle.fx('slash', { x: e.x, y: e.y, id: unit.id, n: 1, skill: 'chen3:wave' });
             battle.dealDamage(unit, e, { amount, type: 'arts', isSkill: true, tags: ['skill', 'chen3:wave'] });
             if (!unit.alive || unit.mem.chen3Wave !== w) return;

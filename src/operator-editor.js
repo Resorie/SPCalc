@@ -1,4 +1,5 @@
 import { createImagePicker } from './image-picker.js';
+import { CLOSURE_CHAR_ID } from './adapters/stronghold-trial-assumptions.js';
 export const escape = v => String(v ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const number = (v,d=0)=>Number(v).toLocaleString('zh-CN',{maximumFractionDigits:d,minimumFractionDigits:d});
 export const option=(v,l,current)=>`<option value="${escape(v)}" ${String(v)===String(current)?'selected':''}>${escape(l)}</option>`;
@@ -21,6 +22,13 @@ export function moduleField(config, rec, catalog, lock) {
     : config.moduleId ?? modules.find(m => m.isDefault)?.uniEquipId ?? 'none';
   const field = select('携带模组', config.diy ? 'uniEquipId' : 'moduleId', options, chosen, lock ? 'disabled' : '');
   return field + (rec.isGolden ? '' : '<p class="field-note">所选模组在精锐状态生效。</p>');
+}
+
+export function closureBlockBonusField(config, rec) {
+  if (rec.charId !== CLOSURE_CHAR_ID) return '';
+  const choices = [['auto', '按实际阻挡'], ['on', '手动开启（全程）'], ['off', '手动关闭']];
+  return select('援军阻挡加成', 'closureBlockBonus', choices, config.closureBlockBonus ?? 'auto') +
+    '<p class="field-note">手动开启时，可露希尔每次攻击都按战术家特性的 150% 攻击力结算。援军标记、索敌范围和实际阻挡依照战场状态。</p>';
 }
 
 export function createOperatorEditor({root,data,catalog,icons,ownBonds,defaultConfig,onChange}) {
@@ -55,6 +63,7 @@ export function createOperatorEditor({root,data,catalog,icons,ownBonds,defaultCo
     <div class="field-row">${numeric('攻击力加成 / %','ext_atkPct',c.external?.atkPct??0,0,100000)}${numeric('攻击速度 / 点','ext_aspd',c.external?.aspd??0,0,100000)}</div>
     <details><summary>攻击力其他乘区</summary><div class="field-row">${numeric('基础固定加攻','ext_atkFlat',c.external?.atkFlat??0,0,100000)}${numeric('后加固定攻击','ext_atkFinal',c.external?.atkFinal??0,0,100000)}</div>${numeric('独立倍率 / 倍','ext_atkMul',c.external?.atkMul??1,1,100)}</details>
     <p class="field-note">百分比加攻与同类增益相加；攻速填点数。基础固定值先参与百分比加成，后加固定值随后加入，最后乘独立倍率及培养系数。这栏直接指定全程属性；队友的实际治疗与站位联动由团队布阵另行结算。</p>
+    ${closureBlockBonusField(c,rec)}
     <div class="config-subheading"><h3>携带装备</h3><span class="subtle">最多 2 件战斗装备</span></div>
     ${imageSelect('装备一','item0',equipment,c.items[0]||'')}<p class="item-desc">${escape(data.items[c.items[0]]?.desc || '选择装备，查看效果。')}</p>
     ${imageSelect('装备二','item1',equipment,c.items[1]||'')}<p class="item-desc">${escape(data.items[c.items[1]]?.desc || '选择装备，比较团队联动与输出。')}</p>
@@ -74,6 +83,7 @@ export function createOperatorEditor({root,data,catalog,icons,ownBonds,defaultCo
       const old=catalog.resolve(c);Object.assign(c,catalog.defaultDiy(name==='diyTier'?Number(el.value):old.tier,old.isGolden,name==='diyOperator'?el.value:c.diy.charId));
     }else if(name==='uniEquipId')c.diy.uniEquipId=el.value==='none'?null:el.value;
     else if(name==='moduleId')c.moduleId=el.value;
+    else if(name==='closureBlockBonus')c.closureBlockBonus=el.value;
     else if(name==='operator'||name==='elite'){
       const old=catalog.resolve(c),base=data.chess[name==='operator'?el.value:old.baseId];
       c.chessId=(name==='elite'?Number(el.value):old.isGolden)?base.goldenId:base.chessId;

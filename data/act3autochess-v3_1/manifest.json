@@ -89,6 +89,8 @@
   },
   "defaults": {
     "target": {
+      "bossId": "boss_12",
+      "hp": 4150000,
       "def": 800,
       "res": 30,
       "duration": 60,
@@ -119,8 +121,25 @@
         "motion"
       ],
       "source": "https://prts.wiki/w/假想敌：茧",
-      "note": "采用常态防御、法抗与重量作为静止靶的参考面板。"
+      "note": "采用规程等级 20 的关底生命及常态防御、法抗和重量。"
     },
+    "bossPresetSource": {
+      "label": "规程 20 · PRTS 领袖属性",
+      "source": "https://prts.wiki/w/卫戍协议·规程/PRTS盟约记录#敌方资料"
+    },
+    "unblockableTargetKeys": [
+      "enemy_9013_acstmk",
+      "enemy_9013_acstmk_2",
+      "enemy_9021_acduml",
+      "enemy_9021_acduml_2",
+      "enemy_1521_dslily",
+      "enemy_9032_aclionk",
+      "enemy_9033_acdeer",
+      "enemy_9029_acfnc",
+      "enemy_9029_acfnc_2",
+      "enemy_9035_acspider",
+      "enemy_9035_acspider_2"
+    ],
     "bossMode": {
       "id": "mode_single_20",
       "round": 14

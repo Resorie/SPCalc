@@ -4,8 +4,9 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { loadRuleset, rulesKey } from '../src/rulesets.js';
 import { createCalculator } from '../src/engine.js';
-import { defaultState } from '../src/config-state.js';
+import { defaultState, restoreState } from '../src/config-state.js';
 import { defaultTeamState, restoreTeamState } from '../src/team-state.js';
+import { MAX_TARGET_HP, resetTargetPanel } from '../src/trial-targets.js';
 import { parseSceneChunks, SCENE_VERSION } from '../src/upstream-render/board3d/load.js';
 
 const readText = url => readFile(url, 'utf8');
@@ -125,7 +126,7 @@ test('default comparison loads the three shared caster builds independently', ()
   const { configs, target } = defaultState(manifest);
   assert.deepEqual(configs.map(c => [engine.catalog.resolve(c).name, engine.catalog.resolve(c).skill.name]),
     [['艾雅法拉', '火山'], ['艾雅法拉', '点燃'], ['逻各斯', '延异视阈']]);
-  assert.deepEqual(target, { def: 800, res: 30, duration: 60, count: 1, distance: 1, seed: 1, rank: 'BOSS', weight: 9, motion: 'WALK' });
+  assert.deepEqual(target, { bossId: 'boss_12', hp: 4150000, def: 800, res: 30, duration: 60, count: 1, distance: 1, seed: 1, rank: 'BOSS', weight: 9, motion: 'WALK' });
   for (const c of configs) {
     assert.deepEqual(c.items, []);
     assert.deepEqual(c.bonds.map(b => [b.id, b.count, b.layers]),
@@ -136,7 +137,8 @@ test('default comparison loads the three shared caster builds independently', ()
 });
 
 test('solo Skillful covers nonmembers even when a saved plan has the obsolete opt-out', () => {
-  const { configs, target } = defaultState(manifest);
+  const { configs, target: targetDefaults } = defaultState(manifest);
+  const target = { ...targetDefaults, hp: MAX_TARGET_HP };
   const eyja = configs[1];
   for (const config of configs) {
     const result = engine.simulate(config, target);
@@ -177,6 +179,31 @@ test('Ignition blocks natural and module SP during recovery and leaves room for 
   assert.deepEqual(starts(ccrY).slice(0, 3), [0, 48, 192]);
 });
 
+test('Swift conversion adds membership, contributes to team count and grants the extra skill-end refund', () => {
+  const morph = 'chess_item_6_03_e_a', ration = 'chess_item_3_04_e_b';
+  const config = { ...manifest.defaults.configs[0], bonds: [{ id: 'swiftShip', count: 2, layers: 300 }], items: [ration] };
+  const rec = engine.catalog.resolve(config);
+  const converted = { ...config, items: [morph, ration] };
+  assert.ok(!engine.ownBonds(rec, config.items).includes('swiftShip'));
+  assert.ok(engine.ownBonds(rec, converted.items).includes('swiftShip'));
+  assert.ok(engine.ownBonds(rec, [ration, morph]).includes('swiftShip'));
+  const member = { uid: 1, row: 4, col: 5, dir: 'RIGHT', config: converted };
+  const native = { uid: 2, row: 4, col: 6, dir: 'RIGHT',
+    config: { ...config, chessId: 'chess_char_6_02_a', items: [] } };
+  const counted = members => engine.teamBonds({ members, bonds: [] }).swiftShip;
+  assert.equal(counted([member]).actualCount, 1);
+  assert.equal(counted([member]).active, false);
+  assert.equal(counted([member, native]).actualCount, 2);
+  assert.equal(counted([member, native]).active, true);
+
+  const starts = c => engine.simulate(c, { ...target, duration: 120 }).timeline
+    .filter(e => e.kind === 'skillStart').map(e => e.t);
+  const [baseFirst, baseSecond] = starts(config);
+  const [convertedFirst, convertedSecond] = starts(converted);
+  assert.equal(convertedFirst, baseFirst);
+  assert.ok(Math.abs(baseSecond - convertedSecond - 12) < 1e-9);
+});
+
 test('fast Ignition ends before the next swing and Swift can fund that swing in both modes', () => {
   const config = { ...manifest.defaults.configs[1], moduleId: 'none', bonds: [], external: { aspd: 100 } };
   const swift = [{ id: 'swiftShip', count: 2, layers: 300 }];
@@ -193,6 +220,156 @@ test('fast Ignition ends before the next swing and Swift can fund that swing in 
   }, short, scene);
   assert.deepEqual(frames(formed), frames(fast));
   assert.equal(formed.assumptions.find(a => a.kind === 'igniteRecovery').uid, 1);
+});
+
+test('default Logos reports Swift skill-end SP separately from rations and misses', () => {
+  const { configs: [, , logos], target: dummy } = defaultState(manifest);
+  const ration = 'chess_item_3_04_e_b', morph = 'chess_item_6_03_e_a';
+  const simulate = (items, layers) => engine.simulate({
+    ...logos, items, bonds: layers === null
+      ? logos.bonds
+      : [...logos.bonds, { id: 'swiftShip', count: 2, layers }],
+  }, dummy);
+  const refunds = result => result.swiftRefunds?.map(event => event.amount);
+  const [off, miss, native, converted] = [
+    simulate([ration, morph], null), simulate([ration, morph], 20),
+    simulate([ration], 229), simulate([ration, morph], 229),
+  ];
+  assert.equal(off.swiftRefunds, null);
+  assert.deepEqual(refunds(miss), []);
+  assert.deepEqual(refunds(native), [15]);
+  assert.deepEqual(refunds(converted), [27]);
+  assert.equal(converted.swiftRefunds[0].t, converted.timeline.find(event => event.kind === 'skillEnd').t);
+  const starts = result => result.timeline.filter(event => event.kind === 'skillStart').map(event => event.t);
+  assert.equal(starts(converted)[0], starts(native)[0]);
+  assert.ok(starts(converted)[1] < starts(native)[1]);
+});
+
+test('Ch’en S3 reads ordinary target HP in solo and team practice and retains its ATK floor', () => {
+  const config = { ...manifest.defaults.config,
+    ...engine.catalog.defaultDiy(6, true, 'char_1050_chen3'), skillIndex: 2, items: [], bonds: [] };
+  const dummy = { ...manifest.defaults.target, def: 0, res: 0 };
+  const simulateTeam = config => engine.simulateTeam({
+    ...team, members: [{ uid: 1, row: 4, col: 8, dir: 'RIGHT', config }], bonds: [],
+  }, dummy, scene);
+  const firstWave = result => {
+    const start = result.timeline.find(event => event.kind === 'skillStart').t;
+    const wave = result.hits.find(hit => hit.t === start);
+    const priorDamage = result.hits.filter(hit => hit.t < start).reduce((sum, hit) => sum + hit.amount, 0);
+    assert.ok(wave);
+    return { damage: wave.amount, priorDamage };
+  };
+  for (const result of [engine.simulate(config, dummy), simulateTeam(config)]) {
+    const { damage, priorDamage } = firstWave(result);
+    assert.equal(result.assumptions.find(a => a.kind === 'chenSwordWaveHp').referenceHp, 120000);
+    assert.ok(Math.abs(damage - 0.06 * 120000 * (1 - priorDamage / dummy.hp)) < 1e-5);
+    assert.equal(result.actualDuration, dummy.duration);
+  }
+  const strong = engine.simulate({ ...config, external: { atkPct: 1000 } }, dummy);
+  assert.ok(firstWave(strong).damage > 7200);
+  const helmet = engine.bossPresets.find(preset => preset.id === 'boss_8');
+  const underHelmet = engine.simulate(config, { ...dummy, ...helmet.target, def: 0, res: 0 });
+  assert.equal(underHelmet.assumptions.find(a => a.kind === 'chenSwordWaveHp').referenceHp, 1200000);
+  assert.ok(firstWave(underHelmet).damage > 71000 && firstWave(underHelmet).damage < 72000);
+});
+
+test('Regulation 20 boss panels use the PRTS final health totals and their own enemy stats', () => {
+  assert.deepEqual(Object.fromEntries(engine.bossPresets.map(({ id, target }) => [id, target.hp])), {
+    boss_1: 3940000, boss_2: 2250000, boss_3: 4200000, boss_4: 4370000, boss_6: 3700000,
+    boss_7: 4040000, boss_8: 6840000, boss_9: 5980000, boss_10: 7220000, boss_11: 3325000,
+    boss_12: 4150000, boss_13: 2100000, boss_14: 5225000, boss_15: 7885000, boss_16: 6175000, boss_17: 1950000,
+  });
+  for (const { id, target } of engine.bossPresets) {
+    const enemy = data.enemies[data.bosses[id].enemyKey];
+    assert.deepEqual([target.def, target.res, target.weight, target.motion, target.rank],
+      [enemy.stats.def, enemy.stats.res, enemy.stats.massLevel, enemy.stats.motion, enemy.rank]);
+  }
+});
+
+test('custom target HP persists in solo and team, and old links retain the endurance target', () => {
+  const states = [[defaultState(manifest), restoreState], [defaultTeamState(manifest), restoreTeamState]];
+  for (const [state, restore] of states) {
+    delete state.target.hp;
+    delete state.target.bossId;
+    const legacy = restore(JSON.parse(JSON.stringify(state)), manifest);
+    assert.equal(legacy.target.hp, MAX_TARGET_HP);
+    assert.equal(legacy.target.bossId, null);
+    Object.assign(state.target, { bossId: 'boss_15', hp: 5000000, duration: 39, seed: 42 });
+    assert.deepEqual(restore(JSON.parse(JSON.stringify(state)), manifest).target, state.target);
+    resetTargetPanel(state.target, manifest);
+    assert.equal(state.target.hp, 4150000);
+    assert.equal(state.target.bossId, 'boss_12');
+    assert.equal(state.target.duration, 39);
+    assert.equal(state.target.seed, 42);
+  }
+});
+
+test('finite HP caps the damage on every target and reports when the last target falls', () => {
+  const { configs: [eyja], target: singleTarget } = defaultState(manifest);
+  const dummy = { ...singleTarget, hp: 10000, count: 2 };
+  const results = [engine.simulate(eyja, dummy), engine.simulateTeam(team, dummy, scene)];
+  for (const result of results) {
+    assert.ok(result.targetDefeatedAt >= 0 && result.targetDefeatedAt < dummy.duration);
+    assert.ok(Math.abs(result.total - 20000) < 1e-6);
+    assert.equal(result.samples.at(-1).t, dummy.duration);
+    assert.equal(result.dps, result.total / dummy.duration);
+  }
+  for (const hp of [0, 2.5, Infinity, MAX_TARGET_HP + 1]) {
+    assert.throws(() => engine.validate(eyja, { ...dummy, hp }), /靶子生命值/);
+  }
+});
+
+test('Closure gets the blocked-target bonus only when the reference target can be blocked', () => {
+  const config = { chessId: 'chess_char_5_21_b', skillIndex: 2, potential: 6, cultivate: 3,
+    items: ['chess_item_6_03_e_a', 'chess_item_3_03_e_b'],
+    bonds: [{ id: 'yanShip', count: 3, layers: 500 }, { id: 'skillfulShip', count: 2, layers: 400 }] };
+  const legacy = { ...manifest.defaults.target, hp: MAX_TARGET_HP, bossId: null };
+  const near = engine.simulate(config, { ...legacy, distance: 1 });
+  const far = engine.simulate(config, { ...legacy, distance: 3 });
+  const eel = engine.simulate(config, { ...legacy, bossId: 'boss_13', distance: 1 });
+  assert.equal(near.hits[0].amount, far.hits[0].amount);
+  assert.equal(near.hits.length, far.hits.length + 1);
+  assert.ok(Math.abs(eel.hits[0].amount - ((near.hits[0].amount + legacy.def) * 1.5 - legacy.def)) < 1e-6);
+
+  const formation = { ...team, bonds: [], members: [{ uid: 1, row: 3, col: 3, dir: 'RIGHT', config }] };
+  const point = { ...scene, stageId: 'act3autochess_m01', targetShape: 'point', targetRow: 3, targetCol: 4 };
+  const trial = { ...target, duration: 1, bossId: 'boss_12' };
+  const cocoonHit = engine.simulateTeam(formation, trial, point).hits[0].amount;
+  const eelHit = engine.simulateTeam(formation, { ...trial, bossId: 'boss_13' }, point).hits[0].amount;
+  assert.ok(eelHit > cocoonHit);
+});
+
+test('Closure can force the trait on or off without changing targeting, and team overrides are per member', () => {
+  const config = { chessId: 'chess_char_5_21_b', skillIndex: 2, potential: 6, cultivate: 3,
+    items: ['chess_item_6_03_e_a', 'chess_item_3_03_e_b'],
+    bonds: [{ id: 'yanShip', count: 3, layers: 500 }, { id: 'skillfulShip', count: 2, layers: 400 }] };
+  const dummy = { ...manifest.defaults.target, duration: 1, distance: 1 };
+  const solo = (mode, target = dummy) => engine.simulate({ ...config, closureBlockBonus: mode }, target);
+  const [auto, on, off] = [solo(undefined), solo('on'), solo('off')];
+  const expected = amount => (amount + dummy.def) * 1.5 - dummy.def;
+  assert.ok(Math.abs(on.hits[0].amount - expected(auto.hits[0].amount)) < 1e-6);
+  assert.deepEqual(off.hits, auto.hits);
+  assert.equal(on.firstHit, auto.firstHit);
+  assert.equal(solo('on', { ...dummy, distance: 5 }).total, 0);
+
+  const blockable = { ...dummy, bossId: 'boss_13' };
+  assert.deepEqual(solo('off', blockable).hits, auto.hits);
+  assert.deepEqual(solo('on', blockable).hits, solo(undefined, blockable).hits);
+  assert.equal(on.assumptions.find(a => a.kind === 'closureBlockBonus').enabled, true);
+  assert.throws(() => solo('invalid'), /援军阻挡加成/);
+
+  const members = [
+    { uid: 1, row: 3, col: 3, dir: 'RIGHT', config: { ...config, closureBlockBonus: 'on' } },
+    { uid: 2, row: 2, col: 3, dir: 'RIGHT', config: { ...config, closureBlockBonus: 'off' } },
+  ];
+  const point = { ...scene, stageId: 'act3autochess_m01', targetShape: 'point', targetRow: 3, targetCol: 4 };
+  const formed = engine.simulateTeam({ ...team, bonds: config.bonds, members }, dummy, point);
+  const firstHit = uid => formed.hits.find(hit => hit.operatorId === `p1/${uid}`).amount;
+  assert.ok(Math.abs(firstHit(1) - expected(firstHit(2))) < 1e-6);
+  assert.deepEqual(formed.assumptions.filter(a => a.kind === 'closureBlockBonus').map(a => [a.uid, a.enabled]), [[1, true], [2, false]]);
+
+  const share = { ...defaultState(manifest), configs: [members[0].config] };
+  assert.equal(restoreState(JSON.parse(JSON.stringify(share)), manifest).configs[0].closureBlockBonus, 'on');
 });
 
 test('preset loadouts affect single and team simulations and keep their defaults for existing links', () => {
